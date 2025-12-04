@@ -12,19 +12,25 @@ html, body {
   color: var(--text);
 }
 
+p {
+  font-family: "Belanosima", sans-serif;
+}
+
 :root {
   font-family: sans-serif;
+
+  --primary: rgb(0 74 79);
 }
 
 /* THEMES */
 .theme-light {
   --background: floralwhite;
   --text: black;
-  --highlight: rgb(0 74 79)
+  --highlight: var(--primary);
 }
 
 .theme-dark {
-  --background: rgb(0 74 79);
+  --background: var(--primary);
   --text: floralwhite;
   --highlight: floralwhite;
 }

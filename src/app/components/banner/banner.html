@@ -1,0 +1,17 @@
+<div>
+  @if (data) {
+    <div class="banner">
+      @if (data?.image != '') {
+        <img [src]="data?.image" [alt]="">
+      }
+      <div class="book-container">
+        @if (data?.title != '') {
+          <h1>{{ data?.title }}</h1>
+        }
+        @if (data?.button != '') {
+          <button id="book">{{ data?.button }}</button>
+        }
+      </div>
+    </div>
+  }
+</div>
