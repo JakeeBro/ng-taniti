@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+/* FONT */
+@font-face {
+  font-family: Malvie;
+  src: url("../public/fonts/malvie.woff");
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  background: var(--background);
+  color: var(--text);
+}
+
+:root {
+  font-family: sans-serif;
+}
+
+/* THEMES */
+.theme-light {
+  --background: floralwhite;
+  --text: black;
+  --highlight: rgb(0 74 79)
+}
+
+.theme-dark {
+  --background: rgb(0 74 79);
+  --text: floralwhite;
+  --highlight: floralwhite;
+}
+
+/* UNIVERSAL LAYOUT */

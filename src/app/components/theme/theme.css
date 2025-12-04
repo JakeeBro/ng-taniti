@@ -1,0 +1,24 @@
+div {
+  width: 2rem;
+  height: 2rem;
+
+  display: inline-block;
+}
+
+button {
+  width: 100%;
+  height: 100%;
+
+  font-size: 1rem;
+
+  background: transparent;
+
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+button:hover {
+  border: 2px solid var(--highlight);
+
+  cursor: pointer;
+}
