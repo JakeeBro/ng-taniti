@@ -5,6 +5,7 @@ import {Info, InfoData} from "../info/info";
 
 export interface PageData {
   bannerData: BannerData;
+  desc: InfoData;
   infoData: InfoData[];
 }
 
