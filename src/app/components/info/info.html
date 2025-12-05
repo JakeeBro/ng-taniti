@@ -8,6 +8,9 @@
       @if (data?.content) {
         <p>{{ data?.content }}</p>
       }
+      @if (data?.image) {
+        <img [src]="data?.image" alt="image">
+      }
     </div>
   }
 

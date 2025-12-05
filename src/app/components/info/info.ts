@@ -10,6 +10,7 @@ export interface InfoData {
   title?: string;
   type?: InfoType;
   content?: string;
+  image?: string;
 }
 
 @Component({

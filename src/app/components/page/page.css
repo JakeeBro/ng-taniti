@@ -1,0 +1,10 @@
+h1 {
+
+}
+
+.pageInfo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
+}

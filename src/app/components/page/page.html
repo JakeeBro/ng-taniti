@@ -1,1 +1,9 @@
-<p>page works!</p>
+<div>
+  <app-banner [data]="pageData!.bannerData"></app-banner>
+
+  <div class="pageInfo-container">
+    @for (info of pageData!.infoData; track info) {
+      <app-info [data]="info"></app-info>
+    }
+  </div>
+</div>

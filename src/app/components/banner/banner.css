@@ -1,3 +1,7 @@
+.banner-shell {
+
+}
+
 .banner {
   margin: 0 0 1.5rem 0;
 
@@ -11,7 +15,7 @@
 }
 
 .subpage {
-
+  height: 200px;
 }
 
 h1 {
@@ -49,9 +53,10 @@ button {
 
 #book {
   margin: 0;
-  padding: 0.2rem 0 0 0;
+  padding: 0.2rem 3rem 0 3rem;
 
-  width: 450px;
+  width: 90%;
+  max-width: 450px;
 
   display: flex;
   justify-content: center;
@@ -61,7 +66,7 @@ button {
   color: floralwhite;
 
   font-family: "Bebas Neue", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(1rem, 3vw, 2rem);
 
   border: 5px solid floralwhite;
   box-sizing: border-box;
@@ -69,7 +74,20 @@ button {
   transition: all .2s ease-in-out;
 }
 
-#book:hover {
+#book.disabled {
+  cursor: default;
+
+  background: floralwhite;
+  color: var(--primary);
+
+  font-size: clamp(3rem, 4vw, 4rem);
+
+  /*border: 5px solid var(--primary);*/
+
+  /*transform: none;*/
+}
+
+#book:not(.disabled):hover {
   transform: scale(1.1);
 
   background: floralwhite;
