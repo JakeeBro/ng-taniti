@@ -1,4 +1,11 @@
 <div>
   <app-banner [data]="bannerData"></app-banner>
+
   <app-info [data]="aboutData"></app-info>
+
+  <app-info [data]="{ title: 'FAQ', type: InfoType.Primary, content: '' }"></app-info>
+
+  @for (question of questionsData; track question) {
+    <app-info [data]="question" class="faq"></app-info>
+  }
 </div>

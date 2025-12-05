@@ -20,6 +20,8 @@ p {
   font-family: sans-serif;
 
   --primary: rgb(0 74 79);
+  --secondary: rgb(5, 26, 28);
+  --tertiary: rgb(96, 142, 146);
 }
 
 /* THEMES */
@@ -30,9 +32,9 @@ p {
 }
 
 .theme-dark {
-  --background: var(--primary);
+  --background: var(--secondary);
   --text: floralwhite;
-  --highlight: floralwhite;
+  --highlight: var(--tertiary);
 }
 
 /* UNIVERSAL LAYOUT */

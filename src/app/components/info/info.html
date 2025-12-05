@@ -1,10 +1,24 @@
 <div class="info-shell">
-  <div class="info-container">
-    @if (data?.title) {
-      <h2>{{ data?.title }}</h2>
-    }
-    @if (data?.content) {
-      <p>{{ data?.content }}</p>
-    }
-  </div>
+
+  @if (data?.type === InfoType.Primary) {
+    <div class="info-container">
+      @if (data?.title) {
+        <h2 class="title">{{ data?.title }}</h2>
+      }
+      @if (data?.content) {
+        <p>{{ data?.content }}</p>
+      }
+    </div>
+  }
+
+  @if (data?.type === InfoType.FAQ) {
+    <div class="info-container faq">
+      @if (data?.title) {
+        <p class="title">{{ data?.title }}</p>
+      }
+      @if (data?.content) {
+        <p>{{ data?.content }}</p>
+      }
+    </div>
+  }
 </div>

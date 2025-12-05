@@ -1,0 +1,13 @@
+<div>
+  <footer>
+    @if (footerData) {
+      @for (line of footerData.lines; track line) {
+        @if (line.link != '') {
+          <a [href]="line.link">{{ line.text }}</a>
+        } @else {
+          <p>{{ line.text }}</p>
+        }
+      }
+    }
+  </footer>
+</div>

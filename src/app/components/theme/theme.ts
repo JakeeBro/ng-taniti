@@ -9,8 +9,7 @@ import { Component } from '@angular/core';
 export class Theme {
   themes: string[] = [
     'theme-light',
-    'theme-dark',
-    'theme-orchid'
+    'theme-dark'
   ]
 
   currentTheme: string = '';

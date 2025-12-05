@@ -1,7 +1,14 @@
 import {Component, Input} from '@angular/core';
 
+export enum InfoType {
+  Primary,
+  Secondary,
+  FAQ
+}
+
 export interface InfoData {
   title?: string;
+  type?: InfoType;
   content?: string;
 }
 
@@ -13,4 +20,6 @@ export interface InfoData {
 })
 export class Info {
   @Input() data?: InfoData;
+  @Input() width?: number;
+  protected readonly InfoType = InfoType;
 }
