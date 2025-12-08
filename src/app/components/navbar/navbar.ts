@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import { Theme } from "../theme/theme";
 import { CartService } from "../../services/cartService";
+import { FirebaseService } from "../../services/firebase.service";
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,7 @@ import { CartService } from "../../services/cartService";
 })
 export class Navbar {
 
-  constructor(private cart: CartService) {}
+  constructor(private cart: CartService, private fb: FirebaseService) {}
 
   printCart() {
     length = this.cart.getItems().length
@@ -33,5 +34,8 @@ export class Navbar {
     this.printCart();
   }
 
-
+  // FIREBASE TEST
+  testFirebase() {
+    this.fb.testConnection();
+  }
 }

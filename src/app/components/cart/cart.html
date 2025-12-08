@@ -14,7 +14,7 @@
         <div class="total-container">
           <app-item [item]="{ id: '0', name: 'Total', price: this.getCartTotal(), image: ''}" [real]="false"></app-item>
 
-          <button>Submit Order</button>
+          <button (click)="submitOrder()">Submit Order</button>
         </div>
       }
     </div>

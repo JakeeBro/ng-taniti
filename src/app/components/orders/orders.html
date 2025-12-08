@@ -1,0 +1,36 @@
+<div class="orders-shell">
+  <app-banner [data]="bannerData"></app-banner>
+
+  <div class="orders-container">
+
+    @if (loading) {
+      <p>Loading Orders...</p>
+    }
+
+    @if (!loading && orders.length === 0) {
+      <p>No Orders Yet</p>
+    }
+
+    @if (!loading && orders.length > 0) {
+
+      @for (order of orders; track order.id) {
+
+        <div class="order-display">
+          <p>ID: {{ order.id }}</p>
+
+          @for (activity of order.activities; track activity) {
+            <p>Activity: {{ activity.name }}</p>
+          }
+
+          <p>Price: {{ order.total }}</p>
+
+          <p>Created At: {{ order.createdAt | date:'short' }}</p>
+
+          <button (click)="deleteOrder(order.id!)">Delete Order</button>
+        </div>
+      }
+
+    }
+
+  </div>
+</div>
