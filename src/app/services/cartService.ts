@@ -15,7 +15,9 @@ export class CartService {
   }
 
   removeItem(item: Activity): void {
-    this.items = this.items.filter(item => item.id !== item.id);
+    console.log('CART SERVICE: Deleting ' + item.name);
+
+    this.items = this.items.filter(i => i.id !== item.id);
   }
 
   clearItems(): void {

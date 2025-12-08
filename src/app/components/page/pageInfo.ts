@@ -116,20 +116,7 @@ export const entertainmentData: PageData = {
     image: ''
   },
   activityData: entertainmentActivities,
-  infoData: [
-    {
-      title: 'Museum',
-      type: InfoType.Primary,
-      content: '',
-      image: 'pageMedia/entertainment-museum.jpeg'
-    },
-    {
-      title: 'Bowling',
-      type: InfoType.Primary,
-      content: '',
-      image: 'pageMedia/entertainment-bowling.jpeg'
-    }
-  ]
+  infoData: []
 }
 
 export const sightseeingData: PageData = {
@@ -149,19 +136,6 @@ export const sightseeingData: PageData = {
     image: ''
   },
   activityData: sightseeingActivities,
-  infoData: [
-    {
-      title: 'Taniti\'s Volcano',
-      type: InfoType.Primary,
-      content: '',
-      image: 'pageMedia/sightseeing-volcano.jpeg'
-    },
-    {
-      title: 'Taniti\'s Rainforest',
-      type: InfoType.Primary,
-      content: '',
-      image: 'pageMedia/sightseeing-rainforest.jpeg'
-    }
-  ]
+  infoData: []
 }
 

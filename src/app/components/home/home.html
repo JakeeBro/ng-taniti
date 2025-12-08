@@ -3,7 +3,7 @@
 
   <app-info [data]="aboutData"></app-info>
 
-  <app-info [data]="{ title: 'FAQ', type: InfoType.Primary, content: '' }"></app-info>
+  <app-info [data]="{ title: 'FAQ', type: InfoType.Primary, content: '' , image: ''}"></app-info>
 
   @for (question of questionsData; track question) {
     <app-info [data]="question" class="faq"></app-info>

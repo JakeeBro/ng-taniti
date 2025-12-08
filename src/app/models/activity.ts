@@ -13,49 +13,49 @@ export const foodActivities: Activity[] = [];
 
 export const entertainmentActivities: Activity[] = [
   {
-    id: '1',
+    id: 'e1',
     name: 'Museum',
     price: 50,
     image: 'pageMedia/entertainment-museum.jpeg'
   },
   {
-    id: '2',
+    id: 'e2',
     name: 'Bowling',
     price: 20,
     image: 'pageMedia/entertainment-bowling.jpeg'
   },
   {
-    id: '3',
+    id: 'e3',
     name: 'Fishing',
     price: 20,
     image: 'pageMedia/entertainment-bowling.jpeg'
   },
   {
-    id: '4',
+    id: 'e4',
     name: 'Snorkeling',
     price: 20,
     image: 'pageMedia/entertainment-bowling.jpeg'
   },
   {
-    id: '5',
+    id: 'e5',
     name: 'Ziplining',
     price: 20,
     image: 'pageMedia/entertainment-bowling.jpeg'
   },
   {
-    id: '6',
+    id: 'e6',
     name: 'Night Club',
     price: 20,
     image: 'pageMedia/entertainment-bowling.jpeg'
   },
   {
-    id: '7',
+    id: 'e7',
     name: 'Art Gallery',
     price: 20,
     image: 'pageMedia/entertainment-bowling.jpeg'
   },
   {
-    id: '8',
+    id: 'e8',
     name: 'Golf',
     price: 20,
     image: 'pageMedia/entertainment-bowling.jpeg'
@@ -64,33 +64,39 @@ export const entertainmentActivities: Activity[] = [
 
 export const sightseeingActivities: Activity[] = [
   {
-    id: '1',
+    id: 's1',
     name: 'Volcano Tour',
     price: 20,
-    image: 'pageMedia/entertainment-bowling.jpeg'
+    image: 'pageMedia/sightseeing-volcano.jpeg'
   },
   {
-    id: '2',
+    id: 's2',
     name: 'Helicopter Tour',
     price: 20,
-    image: 'pageMedia/entertainment-bowling.jpeg'
+    image: 'banners/entertainment.jpeg'
   },
   {
-    id: '3',
+    id: 's3',
     name: 'Boat Tour',
     price: 20,
     image: 'pageMedia/entertainment-bowling.jpeg'
   },
   {
-    id: '4',
+    id: 's4',
     name: 'Bus Tour',
     price: 20,
     image: 'pageMedia/entertainment-bowling.jpeg'
   },
   {
-    id: '5',
+    id: 's5',
+    name: 'Bike Tour',
+    price: 20,
+    image: 'pageMedia/transportation-bike.jpeg'
+  },
+  {
+    id: 's6',
     name: 'Rainforest Hike',
     price: 20,
-    image: 'pageMedia/entertainment-bowling.jpeg'
+    image: 'pageMedia/sightseeing-rainforest.jpeg'
   },
 ];

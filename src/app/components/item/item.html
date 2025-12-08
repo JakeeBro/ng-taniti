@@ -1,0 +1,16 @@
+<div class="item-shell">
+  <div class="item-container">
+
+    @if (item?.image != '') {
+      <img [src]="item.image">
+    }
+    <p>{{ item.name }}</p>
+    <p class="price">${{ item.price }}</p>
+
+    @if (this.real) {
+      <button (click)="removeFromCart()">DELETE</button>
+    } @else {
+      <button (click)="clearCart()">CLEAR</button>
+    }
+  </div>
+</div>
