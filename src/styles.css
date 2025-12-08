@@ -22,6 +22,7 @@ p {
   --primary: rgb(0 74 79);
   --secondary: rgb(5, 26, 28);
   --tertiary: rgb(96, 142, 146);
+  --maxWidth: 700px;
 }
 
 /* THEMES */

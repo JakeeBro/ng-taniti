@@ -1,6 +1,12 @@
-import {PageData} from "./page";
-import {BannerType} from "../banner/banner";
-import {InfoType} from "../info/info";
+import { PageData } from "./page";
+import { BannerType } from "../banner/banner";
+import { InfoType } from "../info/info";
+import {
+  transportationActivities,
+  lodgingActivities,
+  foodActivities,
+  entertainmentActivities,
+  sightseeingActivities } from "../../models/activity";
 
 export const transportationData: PageData = {
   bannerData: {
@@ -11,6 +17,7 @@ export const transportationData: PageData = {
     interactive: false
   },
   desc: {},
+  activityData: transportationActivities,
   infoData: [
     {
       title: 'How to Get Here',
@@ -43,6 +50,7 @@ export const lodgingData: PageData = {
     interactive: false
   },
   desc: {},
+  activityData: lodgingActivities,
   infoData: [
     {
       title: 'Luxury Hotels',
@@ -69,6 +77,7 @@ export const foodData: PageData = {
     interactive: false
   },
   desc: {},
+  activityData: foodActivities,
   infoData: [
     {
       title: 'Restaurants',
@@ -106,6 +115,7 @@ export const entertainmentData: PageData = {
       'located in Merriton Landing, which is a rapidly developing area on the north side of Yellow Leaf Bay.',
     image: ''
   },
+  activityData: entertainmentActivities,
   infoData: [
     {
       title: 'Museum',
@@ -138,6 +148,7 @@ export const sightseeingData: PageData = {
       'tours of the island, hikes in the rainforest, or visits to Taniti’s active volcano.',
     image: ''
   },
+  activityData: sightseeingActivities,
   infoData: [
     {
       title: 'Taniti\'s Volcano',

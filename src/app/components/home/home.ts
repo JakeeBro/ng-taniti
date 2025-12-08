@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {Banner, BannerData, BannerType} from "../banner/banner";
-import {Info, InfoData, InfoType} from "../info/info";
+import { Component } from '@angular/core';
+import { Banner, BannerData, BannerType } from "../banner/banner";
+import { Info, InfoData, InfoType } from "../info/info";
 
 @Component({
   selector: 'app-home',

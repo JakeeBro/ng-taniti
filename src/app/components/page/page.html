@@ -6,6 +6,14 @@
       <app-info [data]="pageData!.desc"></app-info>
     }
 
+    @if (pageData!.activityData.length > 0) {
+      <div class="activity-container">
+        @for (activity of pageData!.activityData; track activity) {
+          <app-product [activity]="activity"></app-product>
+        }
+      </div>
+    }
+
     @for (info of pageData!.infoData; track info) {
       <app-info [data]="info"></app-info>
     }

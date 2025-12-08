@@ -1,11 +1,14 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Banner, BannerData } from "../banner/banner";
-import {Info, InfoData} from "../info/info";
+import { Info, InfoData } from "../info/info";
+import { Activity } from "../../models/activity";
+import {Product} from "../product/product";
 
 export interface PageData {
   bannerData: BannerData;
   desc: InfoData;
+  activityData: Activity[];
   infoData: InfoData[];
 }
 
@@ -13,7 +16,8 @@ export interface PageData {
   selector: 'app-page',
   imports: [
     Banner,
-    Info
+    Info,
+    Product
   ],
   templateUrl: './page.html',
   styleUrl: './page.css',
