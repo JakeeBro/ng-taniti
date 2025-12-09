@@ -45,7 +45,7 @@ export class Orders {
     this.loading = true;
 
     try {
-      const rawOrders = await this.fb.getOrders();
+      const rawOrders = await this.fb.getOrders2();
       this.orders = rawOrders.map(o => ({
         ...o,
         createdAt: o.createdAt ? new Date(o.createdAt.seconds * 1000) : o.createdAt
@@ -60,7 +60,7 @@ export class Orders {
 
   async deleteOrder(id: string) {
     try {
-      await this.fb.deleteOrder(id);
+      await this.fb.deleteOrder2(id);
       await this.refreshOrders();
     } catch (err) {
       console.error('ORDERS: Failed to delete order: ' + err);

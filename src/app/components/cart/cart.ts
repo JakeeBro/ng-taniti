@@ -35,6 +35,9 @@ export class Cart {
   }
 
   getCartTotal(): number {
+    const total = this.cart.priceTotal();
+    console.log('Total type: ' + typeof total, ' // Value: ' + total);
+
     return this.cart.priceTotal();
   }
 
@@ -42,13 +45,40 @@ export class Cart {
   async submitOrder() {
     console.log('CART: Submitting Order...')
 
-    const activities = this.cart.getItems();
+    const rawActivities = this.cart.getItems();
     const total = this.cart.priceTotal();
 
-    const order: Order = { activities: activities, total: total };
+    // Check Activities Here
+
+    const activitiesPayload = rawActivities.map(activity => ({
+      id: activity.id,
+      name: activity.name,
+      price: Number(activity.price),
+
+      ...(typeof activity.image === 'string' && activity.image.length > 0 ? { image: activity.image } : {})
+    }));
+
+    // 1. Check if the Cart is Empty
+    if (activitiesPayload.length === 0) {
+      console.error('CART: Cannot submit an empty order.')
+      return;
+    }
+
+    // 2. Check if EVERY item in the Array is Valid
+    const allActivitiesValid = activitiesPayload.every(activity => this.isValidActivityClient(activity));
+
+    if (!allActivitiesValid) {
+      // Stop Submission if Validation Fails
+      console.error('CART: Submission Cancelled due to invalid Activity Data.');
+      throw new Error('CART: Invalid Activity Data in Cart.');
+    }
+
+    const order: Order = { activities: activitiesPayload, total: total };
+
+    console.log('DEBUG: Payload for Firestore: ' + JSON.stringify(order, null, 2));
 
     try {
-      const res = await this.fb.saveOrder(order);
+      const res = await this.fb.saveOrder2(order);
       console.log('CART: Order saved with ID: ' + res.id);
 
       this.cart.clearItems();
@@ -59,6 +89,30 @@ export class Cart {
       console.error('CART: Failed to save Order: ' + error);
       throw error;
     }
+  }
+
+  isValidActivityClient(activity: any): boolean {
+    if (typeof activity.id !== 'string' || activity.id.length === 0) {
+      console.error("Validation Error: Activity missing valid 'id': ", activity);
+      return false;
+    }
+
+    if (typeof activity.name !== 'string' || activity.name.length === 0) {
+      console.error("Validation Error: Activity missing valid 'name': ", activity);
+      return false;
+    }
+
+    if (!Number.isFinite(activity.price)) {
+      console.error("Validation Error: Activity 'price' is not a finite number: ", activity);
+      return false;
+    }
+
+    if (activity.image !== undefined && typeof activity.image !== 'string') {
+      console.error("Validation Error: Activity 'image' must be a string if present: ", activity);
+      return false;
+    }
+
+    return true;
   }
 
 }
