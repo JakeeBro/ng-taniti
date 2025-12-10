@@ -4,7 +4,7 @@ import { Activity } from "../../models/activity";
 import { Item } from "../item/item";
 import { Banner, BannerData, BannerType } from "../banner/banner";
 import { FirebaseService } from "../../services/firebase.service";
-import {Order} from "../orders/orders";
+import { Order } from "../orders/orders";
 
 @Component({
   selector: 'app-cart',
@@ -35,9 +35,6 @@ export class Cart {
   }
 
   getCartTotal(): number {
-    const total = this.cart.priceTotal();
-    console.log('Total type: ' + typeof total, ' // Value: ' + total);
-
     return this.cart.priceTotal();
   }
 
@@ -48,8 +45,13 @@ export class Cart {
     const rawActivities = this.cart.getItems();
     const total = this.cart.priceTotal();
 
-    // Check Activities Here
+    // Check if the Cart is Empty
+    if (rawActivities.length === 0) {
+      console.error('CART: Cannot submit an empty order.')
+      return;
+    }
 
+    // Ensure Activities is Clean
     const activitiesPayload = rawActivities.map(activity => ({
       id: activity.id,
       name: activity.name,
@@ -58,13 +60,7 @@ export class Cart {
       ...(typeof activity.image === 'string' && activity.image.length > 0 ? { image: activity.image } : {})
     }));
 
-    // 1. Check if the Cart is Empty
-    if (activitiesPayload.length === 0) {
-      console.error('CART: Cannot submit an empty order.')
-      return;
-    }
-
-    // 2. Check if EVERY item in the Array is Valid
+    // Validate Activities
     const allActivitiesValid = activitiesPayload.every(activity => this.isValidActivityClient(activity));
 
     if (!allActivitiesValid) {
@@ -75,7 +71,7 @@ export class Cart {
 
     const order: Order = { activities: activitiesPayload, total: total };
 
-    console.log('DEBUG: Payload for Firestore: ' + JSON.stringify(order, null, 2));
+    console.log('CART: Payload for Firestore: ' + JSON.stringify(order, null, 2));
 
     try {
       const res = await this.fb.saveOrder2(order);
@@ -93,22 +89,22 @@ export class Cart {
 
   isValidActivityClient(activity: any): boolean {
     if (typeof activity.id !== 'string' || activity.id.length === 0) {
-      console.error("Validation Error: Activity missing valid 'id': ", activity);
+      console.error("CART: Validation Error: Invalid ID: ", activity);
       return false;
     }
 
     if (typeof activity.name !== 'string' || activity.name.length === 0) {
-      console.error("Validation Error: Activity missing valid 'name': ", activity);
+      console.error("CART: Validation Error: Invalid Name: ", activity);
       return false;
     }
 
     if (!Number.isFinite(activity.price)) {
-      console.error("Validation Error: Activity 'price' is not a finite number: ", activity);
+      console.error("CART: Validation Error: Invalid Price: ", activity);
       return false;
     }
 
     if (activity.image !== undefined && typeof activity.image !== 'string') {
-      console.error("Validation Error: Activity 'image' must be a string if present: ", activity);
+      console.error("CART: Validation Error: Invalid Image: ", activity);
       return false;
     }
 
