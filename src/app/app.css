@@ -1,10 +1,36 @@
 .app-shell {
+  padding-top: 3rem;
+
   min-height: calc(100vh + 150px);
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .main {
+  margin: 0;
+  padding: 0;
+
   flex: 1;
+}
+
+app-footer {
+  padding-bottom: 0;
+}
+
+@media (max-width: 1080px) {
+  .app-shell {
+    padding-top: 0;
+  }
+
+  app-footer {
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  app-footer {
+    padding-bottom: 3.5rem;
+  }
 }

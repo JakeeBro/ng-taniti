@@ -1,11 +1,23 @@
-<div>
+<div class="nav-shell">
   <nav>
     <app-nav-link [linkData]="home"></app-nav-link>
-    <a routerLink="/transportation" routerLinkActive="active">Transportation</a>
-    <a routerLink="/lodging" routerLinkActive="active">Lodging</a>
-    <a routerLink="/food" routerLinkActive="active">Food</a>
-    <a routerLink="/entertainment" routerLinkActive="active">Entertainment</a>
-    <a routerLink="/sightseeing" routerLinkActive="active">Sightseeing</a>
+
+    @if (isDesktop()) {
+      <app-nav-link [linkData]="transportation"></app-nav-link>
+      <app-nav-link [linkData]="lodging"></app-nav-link>
+      <app-nav-link [linkData]="food"></app-nav-link>
+      <app-nav-link [linkData]="entertainment"></app-nav-link>
+      <app-nav-link [linkData]="sightseeing"></app-nav-link>
+    } @else {
+      <app-nav-link [linkData]="explore" [isButton]="true" (click)="toggleExplore()"></app-nav-link>
+
+      <div class="explore-menu" [class.is-open]="isExploreOpen()">
+        @for (link of exploreLinks; track link.route) {
+          <app-nav-link [linkData]="link" (click)="closeExplore()"></app-nav-link>
+        }
+      </div>
+    }
+
     <app-nav-link [linkData]="cart"></app-nav-link>
     <app-nav-link [linkData]="profile"></app-nav-link>
   </nav>
