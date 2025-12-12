@@ -1,41 +1,37 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
-import { Theme } from "../theme/theme";
-import { CartService } from "../../services/cartService";
-import { FirebaseService } from "../../services/firebase.service";
+import { NavLink, NavLinkData } from "../nav-link/nav-link";
 
 @Component({
   selector: 'app-navbar',
   imports: [
     RouterLinkActive,
     RouterLink,
-    Theme
+    NavLink
   ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
 export class Navbar {
 
-  constructor(private cart: CartService, private fb: FirebaseService) {}
-
-  printCart() {
-    length = this.cart.getItems().length
-
-    console.log('Cart Items: ' + length);
-
-    if (length > 0) {
-      console.log(this.cart.getItems());
-    }
+  home: NavLinkData = {
+    text: 'Home',
+    route: '/home',
+    icon: 'icons/home.png',
+    displayMode: 'responsive'
   }
 
-  clearCart() {
-    this.cart.clearItems();
-
-    this.printCart();
+  cart: NavLinkData = {
+    text: 'Cart',
+    route: '/cart',
+    icon: 'icons/cart.png',
+    displayMode: 'icon-only'
   }
 
-  // FIREBASE TEST
-  testFirebase() {
-    this.fb.testConnection();
+  profile: NavLinkData = {
+    text: 'Profile',
+    route: '/profile',
+    icon: 'icons/profile.png',
+    displayMode: 'icon-only'
   }
 }

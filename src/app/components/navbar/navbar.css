@@ -21,7 +21,7 @@ a {
   display: flex;
   align-items: center;
 
-  color: var(--text);
+  color: var(--nav-text);
   text-decoration: none;
   text-align: center;
 
@@ -36,8 +36,8 @@ a {
 }
 
 a:hover {
-  color: var(--highlight);
-  border: 2px solid var(--highlight);
+  color: var(--nav-highlight);
+  border: 2px solid var(--nav-highlight);
 }
 
 @media (max-width: 1080px) {

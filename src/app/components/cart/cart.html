@@ -3,16 +3,16 @@
 
   <div class="cart-wrapper">
     <div class="cart-container">
-      @if (getCartItems().length <= 0) {
+      @if (cartItems().length <= 0) {
         <p class="empty">Cart is Empty</p>
       } @else {
 
-        @for (item of getCartItems(); track item) {
+        @for (item of cartItems(); track item) {
           <app-item [item]="item"></app-item>
         }
 
         <div class="total-container">
-          <app-item [item]="{ id: '0', name: 'Total', price: this.getCartTotal(), image: ''}" [real]="false"></app-item>
+          <app-item [item]="{ id: '0', name: 'Total', price: cartTotal(), image: ''}" [real]="false"></app-item>
 
           <button (click)="submitOrder()">Submit Order</button>
         </div>

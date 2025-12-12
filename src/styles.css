@@ -25,6 +25,12 @@ p {
   --secondary: rgb(5, 26, 28);
   --tertiary: rgb(96, 142, 146);
   --maxWidth: 700px;
+
+  --background: var(--secondary);
+  --text: floralwhite;
+  --highlight: var(--tertiary);
+  --nav-text: var(--tertiary);
+  --nav-highlight: floralwhite;
 }
 
 /* THEMES */
@@ -32,12 +38,16 @@ p {
   --background: floralwhite;
   --text: black;
   --highlight: var(--primary);
+  --nav-text: var(--secondary);
+  --nav-highlight: var(--primary)
 }
 
 .theme-dark {
   --background: var(--secondary);
   --text: floralwhite;
   --highlight: var(--tertiary);
+  --nav-text: var(--tertiary);
+  --nav-highlight: floralwhite;
 }
 
 /* UNIVERSAL LAYOUT */

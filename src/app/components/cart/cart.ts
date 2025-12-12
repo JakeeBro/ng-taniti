@@ -1,10 +1,8 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import { Component, Signal } from '@angular/core';
 import { CartService } from '../../services/cartService';
 import { Activity } from "../../models/activity";
 import { Item } from "../item/item";
 import { Banner, BannerData, BannerType } from "../banner/banner";
-import { FirebaseService } from "../../services/firebase.service";
-import { Order } from "../orders/orders";
 
 @Component({
   selector: 'app-cart',
@@ -25,90 +23,19 @@ export class Cart {
     interactive: false,
   }
 
-  constructor(
-    private cart: CartService,
-    private fb: FirebaseService,
-    private cd: ChangeDetectorRef) {}
+  cartItems!: Signal<Activity[]>;
+  cartTotal!: Signal<number>;
 
-  getCartItems(): Activity[] {
-    return this.cart.getItems();
+  constructor(private cartService: CartService) {
+    this.cartItems = cartService.cartItems;
+    this.cartTotal = cartService.cartTotal;
   }
 
-  getCartTotal(): number {
-    return this.cart.priceTotal();
-  }
-
-  // FIREBASE
   async submitOrder() {
-    console.log('CART: Submitting Order...')
-
-    const rawActivities = this.cart.getItems();
-    const total = this.cart.priceTotal();
-
-    // Check if the Cart is Empty
-    if (rawActivities.length === 0) {
-      console.error('CART: Cannot submit an empty order.')
-      return;
-    }
-
-    // Ensure Activities is Clean
-    const activitiesPayload = rawActivities.map(activity => ({
-      id: activity.id,
-      name: activity.name,
-      price: Number(activity.price),
-
-      ...(typeof activity.image === 'string' && activity.image.length > 0 ? { image: activity.image } : {})
-    }));
-
-    // Validate Activities
-    const allActivitiesValid = activitiesPayload.every(activity => this.isValidActivityClient(activity));
-
-    if (!allActivitiesValid) {
-      // Stop Submission if Validation Fails
-      console.error('CART: Submission Cancelled due to invalid Activity Data.');
-      throw new Error('CART: Invalid Activity Data in Cart.');
-    }
-
-    const order: Order = { activities: activitiesPayload, total: total };
-
-    console.log('CART: Payload for Firestore: ' + JSON.stringify(order, null, 2));
-
     try {
-      const res = await this.fb.saveOrder2(order);
-      console.log('CART: Order saved with ID: ' + res.id);
-
-      this.cart.clearItems();
-      this.cd.detectChanges();
-
-      return res.id;
+      await this.cartService.submitOrder();
     } catch (error) {
-      console.error('CART: Failed to save Order: ' + error);
-      throw error;
+      console.log('CART: Error submitting Order: ' + error);
     }
   }
-
-  isValidActivityClient(activity: any): boolean {
-    if (typeof activity.id !== 'string' || activity.id.length === 0) {
-      console.error("CART: Validation Error: Invalid ID: ", activity);
-      return false;
-    }
-
-    if (typeof activity.name !== 'string' || activity.name.length === 0) {
-      console.error("CART: Validation Error: Invalid Name: ", activity);
-      return false;
-    }
-
-    if (!Number.isFinite(activity.price)) {
-      console.error("CART: Validation Error: Invalid Price: ", activity);
-      return false;
-    }
-
-    if (activity.image !== undefined && typeof activity.image !== 'string') {
-      console.error("CART: Validation Error: Invalid Image: ", activity);
-      return false;
-    }
-
-    return true;
-  }
-
 }

@@ -1,0 +1,12 @@
+<div class="link-shell">
+  <a [routerLink]="linkData.route" routerLinkActive="active" [class]="'mode-' + linkData.displayMode">
+
+    @if (linkData.icon) {
+      <span>
+        <img [src]="linkData.icon" [alt]="linkData.text" class="nav-icon"/>
+      </span>
+    }
+
+    <span class="nav-text" >{{ linkData.text }}</span>
+  </a>
+</div>

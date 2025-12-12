@@ -1,14 +1,12 @@
 <div>
   <nav>
-    <a routerLink="/home" routerLinkActive="active">Home</a>
+    <app-nav-link [linkData]="home"></app-nav-link>
     <a routerLink="/transportation" routerLinkActive="active">Transportation</a>
     <a routerLink="/lodging" routerLinkActive="active">Lodging</a>
     <a routerLink="/food" routerLinkActive="active">Food</a>
     <a routerLink="/entertainment" routerLinkActive="active">Entertainment</a>
     <a routerLink="/sightseeing" routerLinkActive="active">Sightseeing</a>
-    <app-theme></app-theme>
-    <a routerLink="/cart" routerLinkActive="active" class="icon">Cart</a>
-    <a routerLink="/orders" routerLinkActive="active" class="icon">Orders</a>
-<!--    <button (click)="testFirebase()">Test Firebase</button>-->
+    <app-nav-link [linkData]="cart"></app-nav-link>
+    <app-nav-link [linkData]="profile"></app-nav-link>
   </nav>
 </div>

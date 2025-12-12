@@ -1,8 +1,9 @@
-import { ChangeDetectorRef, Component} from '@angular/core';
+import { Component, OnInit, Signal } from '@angular/core';
 import { Banner, BannerData, BannerType } from "../banner/banner";
-import { FirebaseService } from "../../services/firebase.service";
 import { Activity } from "../../models/activity";
 import { DatePipe } from "@angular/common";
+import { OrderService } from "../../services/orders.service";
+import { Theme } from "../theme/theme";
 
 export interface Order {
   id?: string;
@@ -15,55 +16,39 @@ export interface Order {
   selector: 'app-orders',
   imports: [
     Banner,
-    DatePipe
+    DatePipe,
+    Theme
   ],
   templateUrl: './orders.html',
   styleUrl: './orders.css',
 })
-export class Orders {
+export class Orders implements OnInit {
 
   bannerData: BannerData = {
     bannerType: BannerType.Subpage,
     title: '',
     image: 'banners/taniti.jpeg',
-    button: 'Orders',
+    button: 'PROFILE',
     interactive: false,
   }
 
-  orders: Order[] = [];
-  loading = true;
+  orders!: Signal<Order[]>;
+  loading!: Signal<boolean>;
 
-  constructor(private fb: FirebaseService, private cd: ChangeDetectorRef) { }
-
-  ngOnInit() {
-    this.refreshOrders();
+  constructor(private ordersService: OrderService) {
+    this.orders = ordersService.orders;
+    this.loading = ordersService.loading;
   }
 
-  async refreshOrders() {
-
-    this.orders = [];
-    this.loading = true;
-
-    try {
-      const rawOrders = await this.fb.getOrders2();
-      this.orders = rawOrders.map(o => ({
-        ...o,
-        createdAt: o.createdAt ? new Date(o.createdAt.seconds * 1000) : o.createdAt
-      }))
-    } catch (err) {
-      console.error('ORDERS: Failed to load orders: ' + err);
-    } finally {
-      this.loading = false;
-      this.cd.detectChanges();
-    }
+  ngOnInit() {
+    this.ordersService.refreshOrders();
   }
 
   async deleteOrder(id: string) {
     try {
-      await this.fb.deleteOrder2(id);
-      await this.refreshOrders();
-    } catch (err) {
-      console.error('ORDERS: Failed to delete order: ' + err);
+      await this.ordersService.deleteOrder(id);
+    } catch (error) {
+      console.error('ORDERS: Failed to delete Order: ' + error);
     }
   }
 }
