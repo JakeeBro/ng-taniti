@@ -1,16 +1,11 @@
 import { Component, signal, Signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
 import { NavLink, NavLinkData } from "../nav-link/nav-link";
-import { Explore } from "../explore/explore";
 import { ScreenService } from "../../services/screen.service";
 
 @Component({
   selector: 'app-navbar',
   imports: [
-    RouterLinkActive,
-    RouterLink,
-    NavLink,
-    Explore
+    NavLink
   ],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
