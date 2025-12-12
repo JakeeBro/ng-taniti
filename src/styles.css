@@ -30,7 +30,9 @@ p {
   --text: floralwhite;
   --highlight: var(--tertiary);
   --nav-text: var(--tertiary);
-  --nav-highlight: floralwhite;
+  --nav-highlight: var(--tertiary);
+  --setting-background: var(--primary);
+  --setting-text: floralwhite;
 }
 
 /* THEMES */
@@ -38,8 +40,10 @@ p {
   --background: floralwhite;
   --text: black;
   --highlight: var(--primary);
-  --nav-text: var(--secondary);
-  --nav-highlight: var(--primary)
+  --nav-text: var(--primary);
+  --nav-highlight: var(--primary);
+  --setting-background: var(--primary);
+  --setting-text: floralwhite;
 }
 
 .theme-dark {
@@ -47,7 +51,9 @@ p {
   --text: floralwhite;
   --highlight: var(--tertiary);
   --nav-text: var(--tertiary);
-  --nav-highlight: floralwhite;
+  --nav-highlight: var(--tertiary);
+  --setting-background: var(--primary);
+  --setting-text: floralwhite;
 }
 
 /* UNIVERSAL LAYOUT */

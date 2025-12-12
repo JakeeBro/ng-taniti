@@ -1,3 +1,25 @@
+.orders-shell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.orders-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orders-wrapper {
+  margin-top: 3rem;
+  padding: 0.5rem;
+
+  width: calc(100% - 2rem);
+  max-width: var(--maxWidth);
+}
+
 .orders-container {
   display: flex;
   flex-direction: column;
@@ -7,6 +29,106 @@
 }
 
 .order-display {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+
   background-color: var(--primary);
   color: floralwhite;
+}
+
+.order-stats {
+  margin: 1rem 0;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.order-id {
+
+}
+
+.activities-wrapper {
+  margin: 0 0 1rem 0;
+}
+
+.activity-entry {
+  margin: 0.25rem;
+  padding: 0.5rem 1.5rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  background-color: var(--secondary);
+}
+
+.activity-name {
+
+}
+
+.activity-price {
+
+}
+
+.order-price {
+
+}
+
+.order-time {
+
+}
+
+.order-delete {
+  margin: 1rem 0 0 0;
+}
+
+/* SETTINGS */
+.settings-wrapper {
+  padding: 0.5rem;
+
+  width: calc(100% - 2rem);
+  max-width: var(--maxWidth);
+}
+
+.setting {
+  padding: 0.5rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--setting-background);
+}
+
+h1 {
+  margin: 0 0 1rem 0;
+  padding: 0;
+
+  font-family: Malvie, sans-serif;
+  color: var(--highlight);
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+
+  color: var(--setting-text);
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+
+  font-family: Malvie, sans-serif;
+  font-size: 1.25rem;
+}
+
+.empty {
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0;
+  padding: 0;
 }

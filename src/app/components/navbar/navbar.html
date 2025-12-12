@@ -9,9 +9,9 @@
       <app-nav-link [linkData]="entertainment"></app-nav-link>
       <app-nav-link [linkData]="sightseeing"></app-nav-link>
     } @else {
-      <app-nav-link [linkData]="explore" [isButton]="true" (click)="toggleExplore()"></app-nav-link>
+      <app-nav-link [linkData]="explore" [isButton]="true" (click)="toggleExplore()" #exploreButtonRef></app-nav-link>
 
-      <div class="explore-menu" [class.is-open]="isExploreOpen()">
+      <div class="explore-menu" [class.is-open]="isExploreOpen()" #exploreMenuRef>
         @for (link of exploreLinks; track link.route) {
           <app-nav-link [linkData]="link" (click)="closeExplore()"></app-nav-link>
         }

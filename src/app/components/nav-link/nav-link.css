@@ -163,8 +163,8 @@ span + .nav-text {
   }
 
   .nav-icon {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2rem;
+    height: 2rem;
 
     color: var(--nav-text);
   }
@@ -177,5 +177,6 @@ span + .nav-text {
 
 
     font-size: 1.5rem;
+    font-weight: normal;
   }
 }

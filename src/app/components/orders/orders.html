@@ -1,38 +1,56 @@
 <div class="orders-shell">
   <app-banner [data]="bannerData"></app-banner>
 
-  <app-theme></app-theme>
+  <div class="orders-content">
+    <div class="settings-wrapper">
+      <h1>Settings</h1>
+      <div class="setting">
+        <h3>Dark Mode Toggle</h3>
+        <app-theme></app-theme>
+      </div>
+    </div>
 
-  <div class="orders-container">
+    <div class="orders-wrapper">
+      <h1>Orders</h1>
 
-    @if (loading()) {
-      <p>Loading Orders...</p>
-    }
+      <div class="orders-container">
+        @if (loading()) {
+          <p>Loading Orders...</p>
+        }
 
-    @if (!loading() && orders().length === 0) {
-      <p>No Orders Yet</p>
-    }
+        @if (!loading() && orders().length === 0) {
+          <p class="empty">No Orders Yet</p>
+        }
 
-    @if (!loading() && orders().length > 0) {
+        @if (!loading() && orders().length > 0) {
 
-      @for (order of orders(); track order.id) {
+          @for (order of orders(); track order.id) {
 
-        <div class="order-display">
-          <p>ID: {{ order.id }}</p>
+            <div class="order-display">
+              <div class="order-stats">
+                <p class="order-id">ID: {{ order.id }}</p>
+                <p class="order-time">{{ order.createdAt | date:'short' }}</p>
+              </div>
 
-          @for (activity of order.activities; track activity) {
-            <p>Activity: {{ activity.name }}</p>
+              <div class="activities-wrapper">
+                <h4>Activities</h4>
+                @for (activity of order.activities; track activity) {
+                  <div class="activity-entry">
+                    <p class="activity-name">{{ activity.name }}</p>
+                    <p class="activity-price">${{activity.price}}</p>
+                  </div>
+                }
+              </div>
+
+              <p class="order-price">${{ order.total }}</p>
+
+              <button (click)="deleteOrder(order.id!)" class="order-delete">Delete Order</button>
+            </div>
           }
 
-          <p>Price: {{ order.total }}</p>
+        }
 
-          <p>Created At: {{ order.createdAt | date:'short' }}</p>
-
-          <button (click)="deleteOrder(order.id!)">Delete Order</button>
-        </div>
-      }
-
-    }
-
+      </div>
+    </div>
   </div>
 </div>

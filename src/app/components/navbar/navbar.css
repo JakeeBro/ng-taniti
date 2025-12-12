@@ -98,11 +98,11 @@ a:hover {
 
 @media (max-width: 500px) {
   nav {
-    height: 3.5rem;
+    height: 3rem;
     justify-content: space-around;
   }
 
   .explore-menu {
-    bottom: 3.5rem;
+    bottom: 3rem;
   }
 }

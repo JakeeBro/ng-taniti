@@ -1,4 +1,4 @@
-import { Component, signal, Signal } from '@angular/core';
+import { Component, ElementRef, HostListener, signal, Signal, ViewChild } from '@angular/core';
 import { NavLink, NavLinkData } from "../nav-link/nav-link";
 import { ScreenService } from "../../services/screen.service";
 
@@ -16,6 +16,9 @@ export class Navbar {
 
   isExploreOpen = signal(false);
 
+  @ViewChild('exploreButtonRef', { read: ElementRef }) exploreButtonRef!: ElementRef;
+  @ViewChild('exploreMenuRef', { read: ElementRef }) exploreMenuRef!: ElementRef;
+
   constructor(private screenService: ScreenService) {
     this.isDesktop = screenService.isDesktop;
   }
@@ -26,6 +29,20 @@ export class Navbar {
 
   closeExplore() {
     this.isExploreOpen.set(false);
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickout(event: MouseEvent) {
+    if (!this.isExploreOpen()) return;
+
+    const clickedElement = event.target as HTMLElement;
+
+    const isClickOnButton = this.exploreButtonRef?.nativeElement.contains(clickedElement);
+    const isClickOnMenu = this.exploreMenuRef?.nativeElement.contains(clickedElement);
+
+    if (!isClickOnButton && !isClickOnMenu) {
+      this.closeExplore();
+    }
   }
 
   home: NavLinkData = {
