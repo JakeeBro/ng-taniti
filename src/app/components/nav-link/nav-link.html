@@ -5,7 +5,7 @@
 
       @if (linkData.icon) {
         <span>
-          <img [src]="linkData.icon" [alt]="linkData.text" class="nav-icon"/>
+          <span class="nav-icon" [style.mask-image]="'url(' + linkData.icon + ')'" [style.-webkit-mask-image]="'url(' + linkData.icon + ')'"></span>
         </span>
       }
 
@@ -16,7 +16,7 @@
 
       @if (linkData.icon) {
         <span>
-          <img [src]="linkData.icon" [alt]="linkData.text" class="nav-icon"/>
+          <span class="nav-icon" [style.mask-image]="'url(' + linkData.icon + ')'" [style.-webkit-mask-image]="'url(' + linkData.icon + ')'"></span>
         </span>
       }
 

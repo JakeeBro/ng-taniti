@@ -1,7 +1,7 @@
 <div class="info-shell">
 
   @if (data?.type === InfoType.Primary) {
-    <div class="info-container">
+    <div class="info-container primary">
       @if (data?.title != '') {
         <h2 class="title">{{ data?.title }}</h2>
       }
@@ -15,7 +15,7 @@
   }
 
   @if (data?.type === InfoType.Secondary) {
-    <div class="info-container">
+    <div class="info-container secondary">
       @if (data?.content != '') {
         <p>{{ data?.content }}</p>
       }

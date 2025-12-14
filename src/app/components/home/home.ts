@@ -17,8 +17,8 @@ export class Home {
     bannerType: BannerType.Primary,
     title: 'Taniti',
     image: 'banners/taniti.jpeg',
-    button: 'Start Your Adventure',
-    interactive: true,
+    button: '',
+    interactive: false,
   }
 
   aboutData: InfoData = {
@@ -34,28 +34,23 @@ export class Home {
 
   questionsData: InfoData[] = [
     {
-      title: 'What power outlets are on the Island?',
-      type: InfoType.FAQ,
-      content: 'Power outlets are 120 volts (the same as in the United States).',
-      image: ''
-    },
-    {
-      title: 'What is the law on alcohol sales?',
-      type: InfoType.FAQ,
-      content: 'Alcohol is not allowed to be served or sold between the hours of midnight and 9:00 a.m.',
-      image: ''
-    },
-    {
-      title: 'What is the drinking age on Taniti?',
-      type: InfoType.FAQ,
-      content: 'The drinking age on Taniti is 18 and the drinking age is not strictly enforced.',
-      image: ''
-    },
-    {
       title: 'What language is spoken on Taniti?',
       type: InfoType.FAQ,
       content: 'Many younger Tanitians speak fluent English. Very little English is spoken in rural ' +
         'areas, especially by the older residents.',
+      image: ''
+    },
+    {
+      title: 'What currency is accepted on Taniti?',
+      type: InfoType.FAQ,
+      content: 'Taniti uses the U.S. dollar as its currency, but many businesses will also accept ' +
+        'euros and yen. Several banks facilitate currency exchange, and many businesses accept major credit cards.',
+      image: ''
+    },
+    {
+      title: 'What power outlets are on the Island?',
+      type: InfoType.FAQ,
+      content: 'Taniti\'s power outlets are 120 volts (the same as in the United States).',
       image: ''
     },
     {
@@ -77,14 +72,7 @@ export class Home {
       content: 'Taniti enjoys a large number of national holidays, and many tourist attractions and ' +
         'restaurants will be closed on holidays, so visitors should plan accordingly.',
       image: ''
-    },
-    {
-      title: 'What currency is accepted on Taniti?',
-      type: InfoType.FAQ,
-      content: 'Taniti uses the U.S. dollar as its currency, but many businesses will also accept ' +
-        'euros and yen. Several banks facilitate currency exchange, and many businesses accept major credit cards.',
-      image: ''
-    },
+    }
   ]
   protected readonly InfoType = InfoType;
 }

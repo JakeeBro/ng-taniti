@@ -93,10 +93,19 @@ a.mode-both {
 }
 
 .nav-icon {
+  display: inline-block;
+
   width: 1.75rem;
   height: 1.75rem;
 
-  color: var(--nav-text);
+  background-color: var(--nav-text-mobile);
+
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
 }
 
 .nav-text {

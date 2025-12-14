@@ -45,47 +45,14 @@ export class Navbar {
     }
   }
 
+  // Desktop and Mobile Responsive Links
+
   home: NavLinkData = {
     text: 'Home',
     route: '/home',
-    icon: 'icons/home.png',
+    icon: 'icons/home.svg',
     displayMode: 'responsive'
   }
-
-  explore: NavLinkData = {
-    text: 'Explore',
-    route: '#',
-    icon: 'icons/explore.png',
-    displayMode: 'icon-only'
-  }
-
-  exploreLinks: NavLinkData[] = [
-    {
-      text: 'Transportation',
-      route: '/transportation',
-      displayMode: 'text-only'
-    },
-    {
-      text: 'Lodging',
-      route: '/lodging',
-      displayMode: 'text-only'
-    },
-    {
-      text: 'Food',
-      route: '/food',
-      displayMode: 'text-only'
-    },
-    {
-      text: 'Entertainment',
-      route: '/entertainment',
-      displayMode: 'text-only'
-    },
-    {
-      text: 'Sightseeing',
-      route: '/sightseeing',
-      displayMode: 'text-only'
-    }
-  ]
 
   transportation: NavLinkData = {
     text: 'Transportation',
@@ -125,14 +92,51 @@ export class Navbar {
   cart: NavLinkData = {
     text: 'Cart',
     route: '/cart',
-    icon: 'icons/cart.png',
+    icon: 'icons/cart.svg',
     displayMode: 'icon-only'
   }
 
   profile: NavLinkData = {
     text: 'Profile',
     route: '/profile',
-    icon: 'icons/profile.png',
+    icon: 'icons/profile.svg',
     displayMode: 'icon-only'
   }
+
+  // Mobile Explore Tab Links
+
+  explore: NavLinkData = {
+    text: 'Explore',
+    route: '#',
+    icon: 'icons/explore.svg',
+    displayMode: 'icon-only'
+  }
+
+  exploreLinks: NavLinkData[] = [
+    {
+      text: 'Transportation',
+      route: '/transportation',
+      displayMode: 'text-only'
+    },
+    {
+      text: 'Lodging',
+      route: '/lodging',
+      displayMode: 'text-only'
+    },
+    {
+      text: 'Food',
+      route: '/food',
+      displayMode: 'text-only'
+    },
+    {
+      text: 'Entertainment',
+      route: '/entertainment',
+      displayMode: 'text-only'
+    },
+    {
+      text: 'Sightseeing',
+      route: '/sightseeing',
+      displayMode: 'text-only'
+    }
+  ]
 }

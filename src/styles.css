@@ -30,6 +30,7 @@ p {
   --text: floralwhite;
   --highlight: var(--tertiary);
   --nav-text: var(--tertiary);
+  --nav-text-mobile: floralwhite;
   --nav-highlight: var(--tertiary);
   --setting-background: var(--primary);
   --setting-text: floralwhite;
@@ -41,7 +42,9 @@ p {
   --text: black;
   --highlight: var(--primary);
   --nav-text: var(--primary);
+  --nav-text-mobile: var(--primary);
   --nav-highlight: var(--primary);
+  --nav-highlight-mobile: var(--tertiary);
   --setting-background: var(--primary);
   --setting-text: floralwhite;
 }
@@ -51,7 +54,9 @@ p {
   --text: floralwhite;
   --highlight: var(--tertiary);
   --nav-text: var(--tertiary);
+  --nav-text-mobile: floralwhite;
   --nav-highlight: var(--tertiary);
+  --nav-highlight-mobile: var(--tertiary);
   --setting-background: var(--primary);
   --setting-text: floralwhite;
 }

@@ -70,5 +70,35 @@ img {
 }
 
 @media (max-width: 850px) {
+  .info-container.primary p {
+    padding: 0 1rem;
+    text-align: left;
+  }
 
+  info-container.secondary p {
+    background-color: green;
+  }
+
+  .info-container.faq {
+    width: 100%;
+  }
+
+  .faq {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .faq p.title {
+    width: 100%;
+    max-width: calc(100% - 2rem);
+
+    text-align: left;
+  }
+
+  .faq p {
+    width: 100%;
+    max-width: calc(100% - 2rem);
+
+    text-align: left;
+  }
 }
