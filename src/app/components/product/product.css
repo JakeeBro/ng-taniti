@@ -6,20 +6,15 @@
   flex-direction: column;
   gap: 1rem;
 
-  background-color: transparent;
-  color: var(--highlight);
-
-  transition: all 0.1s ease-in-out;
-}
-
-.product-container:hover {
   background-color: var(--primary);
-
   color: floralwhite;
-}
 
-.product-container:hover button, .product-container:hover p {
-  color: floralwhite;
+  @media (hover: hover) {
+    background-color: transparent;
+    color: var(--highlight);
+
+    transition: all 0.1s ease-in-out;
+  }
 }
 
 h2 {
@@ -51,28 +46,49 @@ button {
   font-size: 1.5rem;
   font-weight: bold;
 
-  background-color: transparent;
-  color: transparent;
-
-  border: 5px solid transparent;
-
-  transition: all 0.1s ease-in-out;
-}
-
-/*button:hover {*/
-
-/*  border: 5px solid floralwhite;*/
-
-/*  cursor: pointer;*/
-/*}*/
-
-#ATC:hover {
   background-color: floralwhite;
   color: var(--primary);
 
   border: 5px solid floralwhite;
 
-  cursor: pointer;
-
   transform: scale(1.07);
+
+  @media (hover: hover) {
+
+    background-color: transparent;
+    color: transparent;
+
+    border: 5px solid transparent;
+
+    transition: all 0.1s ease-in-out;
+
+    transform: scale(1.0);
+  }
+}
+
+/* Hover Styles */
+@media (hover: hover) {
+
+  /* Desktop Product Background and Title Hover */
+  .product-container:hover {
+    background-color: var(--primary);
+    color: floralwhite;
+  }
+
+  /* Desktop Product Add to Cart Button Text and Price Hover */
+  .product-container:hover button, .product-container:hover p {
+    color: floralwhite;
+  }
+
+  /* Desktop Add to Cart Button Hover */
+  #add-to-cart:hover {
+    background-color: floralwhite;
+    color: var(--primary);
+
+    border: 5px solid floralwhite;
+
+    cursor: pointer;
+
+    transform: scale(1.07);
+  }
 }

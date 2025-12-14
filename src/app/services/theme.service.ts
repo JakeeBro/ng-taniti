@@ -12,7 +12,7 @@ export class ThemeService {
   readonly theme = this.themeSignal.asReadonly();
 
   initializeTheme() {
-    const savedTheme = localStorage.getItem('theme') ?? '';
+    const savedTheme = localStorage.getItem('theme') ?? 'theme-dark';
 
     let initialTheme;
 
