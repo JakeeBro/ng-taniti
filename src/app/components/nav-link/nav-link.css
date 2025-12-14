@@ -98,7 +98,7 @@ a.mode-both {
   width: 1.75rem;
   height: 1.75rem;
 
-  background-color: var(--nav-text-mobile);
+  background-color: var(--nav-icon);
 
   mask-size: contain;
   -webkit-mask-size: contain;
@@ -108,12 +108,17 @@ a.mode-both {
   -webkit-mask-position: center;
 }
 
+.nav-icon:hover {
+  background-color: var(--nav-icon-highlight);
+}
+
 .nav-text {
   margin: 0;
   padding: 0;
 
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
   font-variant: all-small-caps;
 
   color: var(--nav-text);
@@ -136,6 +141,18 @@ span + .nav-text {
   a.mode-responsive:hover, a.mode-responsive-hide:hover {
     color: var(--nav-text);
     border: 2px solid transparent;
+  }
+
+  /* Remove Hover Highlight as Text Only on Mobile */
+  a:not(.mode-icon-only, .mode-responsive-show):hover, button:not(.mode-icon-only, .mode-responsive-show):hover {
+    border: 2px solid transparent;
+  }
+
+  /* Change Text Only Hover Color on Mobile */
+  a:not(.mode-icon-only, .mode-responsive-show):hover .nav-text, button:not(.mode-icon-only, .mode-responsive-show):hover .nav-text{
+    border: 2px solid transparent;
+
+    color: var(--nav-text-mobile-highlight);
   }
 
   /* Responsive Mode Mobile Padding */
@@ -174,18 +191,9 @@ span + .nav-text {
   .nav-icon {
     width: 2rem;
     height: 2rem;
-
-    color: var(--nav-text);
   }
 
   a {
 
-  }
-
-  .nav-text {
-
-
-    font-size: 1.5rem;
-    font-weight: normal;
   }
 }
