@@ -1,12 +1,12 @@
 <div>
   @if (currentTheme() === 'theme-light') {
     <button (click)="setTheme('theme-dark')">
-      <span class="icon" [style.mask-image]="'url(icons/dark-mode.svg)'" [style.-webkit-mask-image]="'url(icons/dark-mode.svg)'"></span>
+      <span class="icon" [style.mask-image]="'url(icons/light-mode.svg)'" [style.-webkit-mask-image]="'url(icons/light-mode.svg)'"></span>
     </button>
   }
   @if (currentTheme() === 'theme-dark') {
     <button (click)="setTheme('theme-light')">
-      <span class="icon" [style.mask-image]="'url(icons/light-mode.svg)'" [style.-webkit-mask-image]="'url(icons/light-mode.svg)'"></span>
+      <span class="icon" [style.mask-image]="'url(icons/dark-mode.svg)'" [style.-webkit-mask-image]="'url(icons/dark-mode.svg)'"></span>
     </button>
   }
 </div>
