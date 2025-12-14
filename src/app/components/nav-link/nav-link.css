@@ -31,12 +31,6 @@ a, button {
   cursor: pointer;
 }
 
-/* Hover Highlight when NOT in Icon Only Mode */
-a:not(.mode-icon-only, .mode-responsive-show):hover, button:not(.mode-icon-only, .mode-responsive-show):hover {
-  color: var(--nav-highlight);
-  border: 2px solid var(--nav-highlight);
-}
-
 /* Text Only Mode and Responsive Mode Desktop Padding */
 a.mode-text-only, a.mode-responsive, button.mode-text-only, button.mode-responsive {
   padding: 0 1rem;
@@ -54,7 +48,7 @@ a.mode-both {
 }
 
 /* Hide Icon in Text Only Mode and Responsive Mode by Default on Desktop */
-.mode-text-only .nav-icon , .mode-responsive .nav-icon {
+.mode-text-only .nav-icon, .mode-responsive .nav-icon {
   display: none;
 }
 
@@ -108,10 +102,6 @@ a.mode-both {
   -webkit-mask-position: center;
 }
 
-.nav-icon:hover {
-  background-color: var(--nav-icon-highlight);
-}
-
 .nav-text {
   margin: 0;
   padding: 0;
@@ -137,23 +127,6 @@ span + .nav-text {
 }
 
 @media (max-width: 1080px) {
-  /* Remove Hover Highlight as Icon in Responsive Mode */
-  a.mode-responsive:hover, a.mode-responsive-hide:hover {
-    color: var(--nav-text);
-    border: 2px solid transparent;
-  }
-
-  /* Remove Hover Highlight as Text Only on Mobile */
-  a:not(.mode-icon-only, .mode-responsive-show):hover, button:not(.mode-icon-only, .mode-responsive-show):hover {
-    border: 2px solid transparent;
-  }
-
-  /* Change Text Only Hover Color on Mobile */
-  a:not(.mode-icon-only, .mode-responsive-show):hover .nav-text, button:not(.mode-icon-only, .mode-responsive-show):hover .nav-text{
-    border: 2px solid transparent;
-
-    color: var(--nav-text-mobile-highlight);
-  }
 
   /* Responsive Mode Mobile Padding */
   a.mode-responsive {
@@ -195,5 +168,43 @@ span + .nav-text {
 
   a {
 
+  }
+}
+
+@media (hover: hover) {
+
+  /* Desktop */
+
+  /* Hover Highlight when NOT in Icon Only Mode */
+  a:not(.mode-icon-only, .mode-responsive-show):hover, button:not(.mode-icon-only, .mode-responsive-show):hover {
+    color: var(--nav-highlight);
+    border: 2px solid var(--nav-highlight);
+  }
+
+  .nav-icon:hover {
+    background-color: var(--nav-icon-highlight);
+  }
+
+  @media (max-width: 1080px) {
+
+    /* Responsive Hover */
+
+    /* Remove Hover Highlight as Icon in Responsive Mode */
+    a.mode-responsive:hover, a.mode-responsive-hide:hover {
+      color: var(--nav-text);
+      border: 2px solid transparent;
+    }
+
+    /* Remove Hover Highlight as Text Only on Mobile */
+    a:not(.mode-icon-only, .mode-responsive-show):hover, button:not(.mode-icon-only, .mode-responsive-show):hover {
+      border: 2px solid transparent;
+    }
+
+    /* Change Text Only Hover Color on Mobile */
+    a:not(.mode-icon-only, .mode-responsive-show):hover .nav-text, button:not(.mode-icon-only, .mode-responsive-show):hover .nav-text{
+      border: 2px solid transparent;
+
+      color: var(--nav-text-mobile-highlight);
+    }
   }
 }
