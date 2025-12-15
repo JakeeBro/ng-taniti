@@ -1,3 +1,7 @@
+.product-shell {
+
+}
+
 .product-container {
   margin: 0;
   padding: 0.5rem;
@@ -20,22 +24,32 @@
 h2 {
   margin: 0;
 
+  width: 100%;
+
   font-family: Malvie, sans-serif;
 }
 
 p {
   margin: 0;
 
+  width: 100%;
+
   color: var(--text);
+
+  font-size: 1.25rem;
 }
 
 img {
   margin: 0;
 
-  max-width: 200px;
-  height: 150px;
+  width: 100%;
+  aspect-ratio: 4/3;
 
   object-fit: cover;
+
+  @media (max-width: 500px) {
+
+  }
 }
 
 button {
@@ -51,7 +65,7 @@ button {
 
   border: 5px solid floralwhite;
 
-  transform: scale(1.07);
+  transform: scale(1.04);
 
   @media (hover: hover) {
 
@@ -89,6 +103,6 @@ button {
 
     cursor: pointer;
 
-    transform: scale(1.07);
+    transform: scale(1.04);
   }
 }
