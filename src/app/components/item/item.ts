@@ -23,6 +23,6 @@ export class Item {
   clearCart() {
     console.log('ITEM: Clearing Cart');
 
-    this.cart.clearItems();
+    this.cart.clearItems(false);
   }
 }

@@ -42,6 +42,8 @@ p {
   --nav-icon-highlight: var(--tertiary);
   --setting-background: var(--primary);
   --setting-text: floralwhite;
+  --toast-background: floralwhite;
+  --toast-text: var(--primary);
 }
 
 /* THEMES */
@@ -58,6 +60,8 @@ p {
   --nav-icon-highlight: var(--tertiary);
   --setting-background: var(--primary);
   --setting-text: floralwhite;
+  --toast-background: var(--primary);
+  --toast-text: floralwhite;
 }
 
 .theme-dark {
@@ -73,4 +77,6 @@ p {
   --nav-icon-highlight: var(--tertiary);
   --setting-background: var(--primary);
   --setting-text: floralwhite;
+  --toast-background: floralwhite;
+  --toast-text: var(--primary);
 }

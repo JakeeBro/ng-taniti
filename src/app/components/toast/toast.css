@@ -1,0 +1,36 @@
+.toast-stack-shell {
+  position: fixed;
+  bottom: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toast {
+  width: fit-content;
+  text-align: center;
+
+  background-color: var(--toast-background);
+  color: var(--toast-text);
+  padding: 10px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  animation: toast-fade 3s ease-in-out forwards;
+}
+
+@keyframes toast-fade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.toast p {
+  margin: 0;
+}

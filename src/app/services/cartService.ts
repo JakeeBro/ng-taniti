@@ -2,6 +2,7 @@ import { computed, Injectable, signal, WritableSignal } from "@angular/core";
 import { Activity } from "../models/activity";
 import { Order } from "../components/orders/orders";
 import { FirebaseService } from "./firebase.service";
+import { ToastService } from "./toast.service";
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
@@ -13,7 +14,7 @@ export class CartService {
     return this.cartItems().reduce((total, item) => total + item.price, 0);
   })
 
-  constructor(private firebase: FirebaseService) {
+  constructor(private firebase: FirebaseService, private toastService: ToastService) {
     const savedCartItems = localStorage.getItem('taniti-cart');
 
     if (savedCartItems) {
@@ -27,6 +28,9 @@ export class CartService {
 
   addItem(item: Activity): void {
     this.cartItemsSignal.update((currentItems) => [...currentItems, item]);
+
+    this.toastService.show(`${item.name} added to cart`);
+
     this.saveCart();
   }
 
@@ -35,11 +39,16 @@ export class CartService {
 
     this.cartItemsSignal.update((currentItems) => currentItems.filter(i => i.id !== item.id));
 
+    this.toastService.show(`${item.name} removed from cart`);
+
     this.saveCart();
   }
 
-  clearItems(): void {
+  clearItems(submit: boolean): void {
     this.cartItemsSignal.set([]);
+
+    this.toastService.show(submit ? 'Order submitted' : `Cart cleared`);
+
     this.saveCart();
   }
 
@@ -82,7 +91,7 @@ export class CartService {
       const res = await this.firebase.saveOrder2(order);
       console.log('CART SERVICE: Order saved with ID: ' + res.id);
 
-      this.clearItems();
+      this.clearItems(true);
 
       return res.id;
     } catch (error) {

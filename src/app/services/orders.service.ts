@@ -1,6 +1,7 @@
 import { Injectable, signal, WritableSignal } from "@angular/core";
 import { Order } from "../components/orders/orders";
 import { FirebaseService } from "./firebase.service";
+import { ToastService } from "./toast.service";
 
 @Injectable({ providedIn: 'root' })
 export class OrderService {
@@ -11,7 +12,7 @@ export class OrderService {
   private loadingSignal: WritableSignal<boolean> = signal<boolean>(true);
   readonly loading = this.loadingSignal.asReadonly();
 
-  constructor(private firebase: FirebaseService) {}
+  constructor(private firebase: FirebaseService, private toastService: ToastService) {}
 
   async refreshOrders() {
 
@@ -34,11 +35,16 @@ export class OrderService {
   }
 
   async deleteOrder(id: string) {
+    let failed = false;
+
     try {
       await this.firebase.deleteOrder2(id);
       await this.refreshOrders();
     } catch (err) {
       console.error('ORDERS SERVICE: Failed to delete order: ' + err);
+      failed = true;
     }
+
+    this.toastService.show(failed ? 'Failed to delete order' : `Order ${id} deleted`);
   }
 }

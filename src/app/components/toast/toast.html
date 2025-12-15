@@ -1,0 +1,7 @@
+<div class="toast-stack-shell">
+  @for (toast of toastService.activeToasts(); track toast.id) {
+    <div class="toast">
+      <p>{{ toast.message }}</p>
+    </div>
+  }
+</div>
