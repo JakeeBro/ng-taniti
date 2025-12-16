@@ -3,10 +3,10 @@
   @if (data?.type === InfoType.Primary) {
     <div class="info-container primary">
       @if (data?.title != '') {
-        <h2 class="title">{{ data?.title }}</h2>
+        <h2 class="title" [innerHTML]="data?.title"></h2>
       }
       @if (data?.content != '') {
-        <p>{{ data?.content }}</p>
+        <p [innerHTML]="data?.content"></p>
       }
       @if (data?.image != '') {
         <img [src]="data?.image" alt="image">
@@ -17,7 +17,7 @@
   @if (data?.type === InfoType.Secondary) {
     <div class="info-container secondary">
       @if (data?.content != '') {
-        <p>{{ data?.content }}</p>
+        <p [innerHTML]="data?.content"></p>
       }
     </div>
   }
@@ -25,10 +25,10 @@
   @if (data?.type === InfoType.FAQ) {
     <div class="info-container faq">
       @if (data?.title != '') {
-        <p class="title">{{ data?.title }}</p>
+        <p class="title" [innerHTML]="data?.title"></p>
       }
       @if (data?.content != '') {
-        <p>{{ data?.content }}</p>
+        <p [innerHTML]="data?.content"></p>
       }
     </div>
   }

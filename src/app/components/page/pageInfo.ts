@@ -16,29 +16,23 @@ export const transportationData: PageData = {
     button: 'Transportation',
     interactive: false
   },
-  desc: {},
+  desc: {
+    title: '',
+    type: InfoType.Secondary,
+    content: 'Almost all visitors arrive to Taniti by air, though some arrive on a small cruise ship that docks in ' +
+      'Yellow Leaf Bay for one night per week. Taniti is served by a small airport that can accommodate ' +
+      'small jets and propeller planes. Taniti is in the process of expanding the airport so larger jets ' +
+      'will be able to land on the island within the next few years. ' +
+      '<br><br>' +
+      'Public buses serve Taniti City and run from 5 a.m. to 11 p.m. every day. Private buses serve the rest ' +
+      'of the island. Taxis are available in Taniti City, and rental cars can be rented from a local rental ' +
+      'agency near the airport. Bikes and helmets are available to rent from several vendors (helmets are ' +
+      'required by law). Taniti City is fairly flat and very walkable. Many tourists stay in the area ' +
+      'surrounding Merriton Landing: this area is easy to explore on foot.',
+    image: ''
+  },
   activityData: transportationActivities,
-  infoData: [
-    {
-      title: 'How to Get Here',
-      type: InfoType.Primary,
-      content: 'Almost all visitors arrive to Taniti by air, though some arrive on a small cruise ship that docks in ' +
-        'Yellow Leaf Bay for one night per week. Taniti is served by a small airport that can accommodate ' +
-        'small jets and propeller planes. Taniti is in the process of expanding the airport so larger jets ' +
-        'will be able to land on the island within the next few years.',
-      image: 'pageMedia/transportation-plane.jpeg'
-    },
-    {
-      title: 'How to Get Around',
-      type: InfoType.Primary,
-      content: 'Public buses serve Taniti City and run from 5 a.m. to 11 p.m. every day. Private buses serve the rest ' +
-        'of the island. Taxis are available in Taniti City, and rental cars can be rented from a local rental ' +
-        'agency near the airport. Bikes and helmets are available to rent from several vendors (helmets are ' +
-        'required by law). Taniti City is fairly flat and very walkable. Many tourists stay in the area ' +
-        'surrounding Merriton Landing: this area is easy to explore on foot.',
-      image: 'pageMedia/transportation-bike.jpeg'
-    }
-  ]
+  infoData: []
 }
 
 export const lodgingData: PageData = {
@@ -49,23 +43,15 @@ export const lodgingData: PageData = {
     button: 'Lodging',
     interactive: false
   },
-  desc: {},
+  desc: {
+    title: '',
+    type: InfoType.Secondary,
+    content: 'Taniti has a wide variety of lodging that ranges from an inexpensive hostel to one large, four-star resort. ' +
+      '<br><br>There are many small, family-owned hotels and a growing number of bed and breakfasts. ',
+    image: ''
+  },
   activityData: lodgingActivities,
-  infoData: [
-    {
-      title: 'Luxury Hotels',
-      type: InfoType.Primary,
-      content: 'Taniti has a wide variety of lodging that ranges from an inexpensive hostel to one large, four-star resort.',
-      image: 'pageMedia/lodging-hotel.jpeg'
-    },
-    {
-      title: 'Bed & Breakfasts',
-      type: InfoType.Primary,
-      content: 'There are many small, family-owned hotels and a growing number of bed and breakfasts. ' +
-        'All types of lodging are strictly regulated and regularly inspected by the Tanitian government.',
-      image: 'pageMedia/lodging-bnb.jpeg'
-    }
-  ]
+  infoData: []
 }
 
 export const foodData: PageData = {
@@ -76,24 +62,17 @@ export const foodData: PageData = {
     button: 'Food',
     interactive: false
   },
-  desc: {},
+  desc: {
+    title: '',
+    type: InfoType.Secondary,
+    content: 'Taniti currently has 10 restaurants: five serve mostly local fish and rice, three serve ' +
+      'American-style meals, and two serve Pan-Asian cuisine. ' +
+      '<br><br>Taniti has two supermarkets, two smaller grocery stores, and one convenience store that ' +
+      'is open 24 hours a day. ',
+    image: ''
+  },
   activityData: foodActivities,
-  infoData: [
-    {
-      title: 'Restaurants',
-      type: InfoType.Primary,
-      content: 'Taniti currently has 10 restaurants: five serve mostly local fish and rice, three serve ' +
-        'American-style meals, and two serve Pan-Asian cuisine.',
-      image: 'pageMedia/food-restaurant.jpeg'
-    },
-    {
-      title: 'Grocery',
-      type: InfoType.Primary,
-      content: 'Taniti has two supermarkets, two smaller grocery stores, and one convenience store that ' +
-        'is open 24 hours a day.',
-      image: 'pageMedia/food-grocery.jpeg'
-    }
-  ]
+  infoData: []
 }
 
 export const entertainmentData: PageData = {
