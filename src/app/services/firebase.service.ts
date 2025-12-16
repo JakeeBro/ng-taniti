@@ -8,7 +8,9 @@ import {
   Firestore,
   getDocs,
   getFirestore,
-  serverTimestamp
+  serverTimestamp,
+  query,
+  orderBy
 } from "firebase/firestore";
 import {Auth, getAuth, signInAnonymously} from "@firebase/auth";
 import {Order} from "../components/orders/orders";
@@ -55,7 +57,9 @@ export class FirebaseService {
 
   async getOrders(): Promise<Order[]> {
     return this.withAuth(async () => {
-      const snapshot = await getDocs(collection(this.db, 'orders'));
+      const orders = collection(this.db, 'orders');
+      const q = query(orders, orderBy('createdAt', 'desc'));
+      const snapshot = await getDocs(q);
       return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Order[];
     })
   }
