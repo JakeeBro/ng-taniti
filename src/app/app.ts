@@ -27,8 +27,8 @@ export class App {
         link: ''
       },
       {
-        text: '2025',
-        link: ''
+        text: 'Jake Poshepny, 2025',
+        link: 'https://jakeebro.github.io/Portfolio/about'
       }
     ]
   }

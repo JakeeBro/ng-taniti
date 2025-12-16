@@ -3,9 +3,9 @@
     @if (footerData) {
       @for (line of footerData.lines; track line) {
         @if (line.link != '') {
-          <a [href]="line.link">{{ line.text }}</a>
+          <a [href]="line.link" [innerHTML]="line.text"></a>
         } @else {
-          <p>{{ line.text }}</p>
+          <p [innerHTML]="line.text"></p>
         }
       }
     }
