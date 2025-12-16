@@ -3,6 +3,7 @@ import { Activity } from "../models/activity";
 import { Order } from "../components/orders/orders";
 import { FirebaseService } from "./firebase.service";
 import { ToastService } from "./toast.service";
+import { OrderService } from "./orders.service";
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
@@ -14,7 +15,9 @@ export class CartService {
     return this.cartItems().reduce((total, item) => total + item.price, 0);
   })
 
-  constructor(private firebase: FirebaseService, private toastService: ToastService) {
+  private readonly cartLimit = 20;
+
+  constructor(private firebase: FirebaseService, private toastService: ToastService, private orderService: OrderService) {
     const savedCartItems = localStorage.getItem('taniti-cart');
 
     if (savedCartItems) {
@@ -27,9 +30,15 @@ export class CartService {
   }
 
   addItem(item: Activity): void {
-    this.cartItemsSignal.update((currentItems) => [...currentItems, item]);
+    let failed = false;
 
-    this.toastService.show(`${item.name} added to cart`);
+    if (this.cartItems().length < this.cartLimit) {
+      this.cartItemsSignal.update((currentItems) => [...currentItems, item]);
+    } else {
+      failed = true;
+    }
+
+    this.toastService.show(failed ? 'Cart limit reached' : `${item.name} added to cart`);
 
     this.saveCart();
   }
@@ -56,17 +65,38 @@ export class CartService {
   async submitOrder() {
     console.log('CART SERVICE: Submitting Order...')
 
+    // let orderCount = this.orderService.orders().length;
+    let limit = this.orderService.orderLimit;
+
+    // this.toastService.show(`Order Count: ${orderCount}, Limit: ${limit}`);
+
+    if (this.orderService.orders().length >= this.orderService.orderLimit) {
+      this.toastService.show(`Order limit reached, please delete an order and try again`);
+      return;
+    }
+
     const rawActivities = this.cartItems();
-    const total = this.cartTotal();
+    let slicedActivities = rawActivities;
 
     // Check if the Cart is Empty
-    if (this.cartItems().length === 0) {
+    if (rawActivities.length === 0) {
       console.error('CART SERVICE: Cannot submit an empty order.')
       return;
     }
 
+    if (rawActivities.length > this.cartLimit) {
+      slicedActivities = rawActivities.slice(0, this.cartLimit);
+
+      this.toastService.show(`Cart trimmed to ${this.cartLimit} items`);
+
+      this.cartItemsSignal.set(slicedActivities);
+      this.saveCart();
+    }
+
+    const total = this.cartTotal();
+
     // Ensure Activities is Clean
-    const activitiesPayload = this.cartItems().map(activity => ({
+    const activitiesPayload = slicedActivities.map(activity => ({
       id: activity.id,
       name: activity.name,
       price: Number(activity.price),
@@ -88,7 +118,7 @@ export class CartService {
     console.log('CART SERVICE: Payload for Firestore: ' + JSON.stringify(order, null, 2));
 
     try {
-      const res = await this.firebase.saveOrder2(order);
+      const res = await this.firebase.saveOrder(order);
       console.log('CART SERVICE: Order saved with ID: ' + res.id);
 
       this.clearItems(true);
@@ -96,6 +126,9 @@ export class CartService {
       return res.id;
     } catch (error) {
       console.error('CART SERVICE: Failed to submit Order: ' + error);
+
+      this.toastService.show('Failed to submit Order');
+
       throw error;
     }
   }

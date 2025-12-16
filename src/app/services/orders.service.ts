@@ -12,6 +12,8 @@ export class OrderService {
   private loadingSignal: WritableSignal<boolean> = signal<boolean>(true);
   readonly loading = this.loadingSignal.asReadonly();
 
+  public readonly orderLimit = 5;
+
   constructor(private firebase: FirebaseService, private toastService: ToastService) {}
 
   async refreshOrders() {
@@ -20,7 +22,7 @@ export class OrderService {
     this.loadingSignal.set(true);
 
     try {
-      const rawOrders = await this.firebase.getOrders2();
+      const rawOrders = await this.firebase.getOrders();
 
       this.ordersSignal.set(rawOrders.map(o => ({
         ...o,
@@ -38,7 +40,7 @@ export class OrderService {
     let failed = false;
 
     try {
-      await this.firebase.deleteOrder2(id);
+      await this.firebase.deleteOrder(id);
       await this.refreshOrders();
     } catch (err) {
       console.error('ORDERS SERVICE: Failed to delete order: ' + err);

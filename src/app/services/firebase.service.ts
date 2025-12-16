@@ -1,21 +1,17 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 // import '../config/firebase.config';
 import {
-  getFirestore,
-  collection,
   addDoc,
-  getDocs,
+  collection,
   deleteDoc,
   doc,
-  serverTimestamp,
-  Firestore
+  Firestore,
+  getDocs,
+  getFirestore,
+  serverTimestamp
 } from "firebase/firestore";
-import {
-  getAuth,
-  signInAnonymously,
-  Auth
-} from "@firebase/auth";
-import { Order } from "../components/orders/orders";
+import {Auth, getAuth, signInAnonymously} from "@firebase/auth";
+import {Order} from "../components/orders/orders";
 
 @Injectable({ providedIn: 'root' })
 export class FirebaseService {
@@ -49,13 +45,6 @@ export class FirebaseService {
   }
 
   async saveOrder(data: any) {
-    return addDoc(collection(this.db, 'orders'), {
-      ...data,
-      createdAt: serverTimestamp()
-    });
-  }
-
-  async saveOrder2(data: any) {
     return this.withAuth(() =>
       addDoc(collection(this.db, 'orders'), {
         ...data,
@@ -65,17 +54,6 @@ export class FirebaseService {
   }
 
   async getOrders(): Promise<Order[]> {
-    try {
-      const snapshot = await getDocs(collection(this.db, 'orders'));
-      console.log('Firestore Snapshot: ', snapshot.docs.length, snapshot.docs.map(doc => doc.data()));
-      return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Order[];
-    } catch (error) {
-      console.error('Firestore: getOrders error', error);
-      throw error;
-    }
-  }
-
-  async getOrders2(): Promise<Order[]> {
     return this.withAuth(async () => {
       const snapshot = await getDocs(collection(this.db, 'orders'));
       return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Order[];
@@ -83,22 +61,8 @@ export class FirebaseService {
   }
 
   async deleteOrder(id: string) {
-    return deleteDoc(doc(this.db, 'orders', id));
-  }
-
-  async deleteOrder2(id: string) {
     return this.withAuth(() =>
       deleteDoc(doc(this.db, 'orders', id))
     );
-  }
-
-  // Test
-  async testConnection() {
-    try {
-      const res = await this.saveOrder({ test: true });
-      console.log('Firestore: test write OK: ', res.id);
-    } catch (err) {
-      console.log('Firestore: test write FAILED: ', err);
-    }
   }
 }
