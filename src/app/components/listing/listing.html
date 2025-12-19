@@ -1,0 +1,36 @@
+<div class="listing-shell">
+  <div class="listing-container">
+
+    @if (listing.type == ListingType.PrimaryInfo) {
+
+      <p>Primary Info</p>
+
+    } @else if (listing.type == ListingType.SecondaryInfo) {
+
+      <p>Secondary Info</p>
+
+    } @else if (listing.type == ListingType.FAQ) {
+
+      <p>FAQ</p>
+
+    } @else if (listing.type == ListingType.Activity) {
+
+      <p>Activity</p>
+
+    } @else if (listing.type == ListingType.Vendor) {
+
+      <p>Vendor</p>
+
+    }
+
+<!--    <h1 [innerHTML]="listing?.title"></h1>-->
+<!--    <p [innerHTML]="listing.content"></p>-->
+
+<!--    @if (listing.booking == BookingType.BuyNow) {-->
+<!--      <button [innerHTML]="convertBooking(listing.booking)"></button>-->
+<!--    } @else {-->
+<!--      <button [innerHTML]="convertBooking(listing.booking)"></button>-->
+<!--    }-->
+
+  </div>
+</div>

@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { Banner, BannerData, BannerType } from "../banner/banner";
 import { Info, InfoData, InfoType } from "../info/info";
+import {Vendor, VendorData} from "../vendor/vendor";
 
 @Component({
   selector: 'app-home',
   imports: [
     Banner,
-    Info
+    Info,
+    Vendor
   ],
   templateUrl: './home.html',
   styleUrl: './home.css',
@@ -21,58 +23,118 @@ export class Home {
     interactive: false,
   }
 
+  banner1: BannerData = {
+    bannerType: BannerType.Subpage,
+    title: '',
+    image: 'banners/taniti.jpeg',
+    button: '',
+    interactive: false,
+  }
+
   aboutData: InfoData = {
-    title: 'About the Island',
+    title: 'Untamed Nature',
     type: InfoType.Primary,
-    content: 'Taniti is a small, tropical island in the Pacific. While the island has an area of less than 500 square ' +
-      'miles, the terrain is varied and includes both sandy and rocky beaches, a small but safe harbor, ' +
-      'lush tropical rainforests, and a mountainous interior that includes a small, active volcano. Taniti has an ' +
-      'indigenous population of about 20,000. Until a recent increase in tourism, most of the Tanitian economy was ' +
-      'dominated by fishing or agriculture',
+    content: 'Tucked away in the heart of the Pacific, Taniti is a boutique paradise waiting to be explored. ' +
+      'Across our intimate 500 square miles, you’ll find a world of dramatic contrasts—from the whisper-quiet ' +
+      'serenity of sun-drenched sandy beaches to the rugged, breathtaking beauty of our rocky coastlines.',
     image: ''
   }
 
-  questionsData: InfoData[] = [
+  aboutData2: InfoData = {
+    title: 'Adventure Awaits',
+    type: InfoType.Primary,
+    content: 'Venture beyond the shore to discover an emerald world. Whether you’re navigating our lush tropical ' +
+      'rainforests or trekking toward the majestic silhouette of our active volcanic peak, the island’s mountainous ' +
+      'interior offers an unforgettable backdrop for the bold at heart.',
+    image: ''
+  }
+
+  aboutData3: InfoData = {
+    title: 'Authentic Culture',
+    type: InfoType.Primary,
+    content: 'With a community of 20,000 residents, Taniti’s heartbeat is rooted in tradition. Once a quiet haven ' +
+      'for local fishermen and farmers, our island has blossomed into a vibrant destination that remains deeply ' +
+      'connected to its heritage. Experience an authentic culture where the pace of life is dictated by the tides, ' +
+      'and every sunset feels like an invitation to stay just a little longer.',
+    image: ''
+  }
+
+  entertainmentData: InfoData = {
+    title: 'Island Life',
+    type: InfoType.Primary,
+    content: 'From the thrill of ziplining and snorkeling to the neon lights of our nightclubs and bowling alleys, ' +
+      'Taniti offers excitement at every pace. Whether you’re looking for a quiet afternoon at the museum or a ' +
+      'high-energy day on the reef, your perfect island adventure starts here.',
+    image: ''
+  }
+
+  sightseeingData: InfoData = {
+    title: 'Explore',
+    type: InfoType.Primary,
+    content: 'Witness the majesty of an active volcano by air, land, or sea. From breathtaking helicopter tours ' +
+      'and rainforest hikes to leisurely bike rides through local villages, our sightseeing excursions offer the ' +
+      'ultimate perspective on Taniti’s natural wonders.',
+    image: ''
+  }
+
+  transportationData: VendorData[] = [
     {
-      title: 'What language is spoken on Taniti?',
-      type: InfoType.FAQ,
-      content: 'Many younger Tanitians speak fluent English. Very little English is spoken in rural ' +
-        'areas, especially by the older residents.',
-      image: ''
+      name: 'Taniti Air',
+      about: 'The island\'s premier international carrier',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
     },
     {
-      title: 'What currency is accepted on Taniti?',
-      type: InfoType.FAQ,
-      content: 'Taniti uses the U.S. dollar as its currency, but many businesses will also accept ' +
-        'euros and yen. Several banks facilitate currency exchange, and many businesses accept major credit cards.',
-      image: ''
+      name: 'Tropic Travel',
+      about: 'Island hopping made easy and affordable',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
     },
     {
-      title: 'What power outlets are on the Island?',
-      type: InfoType.FAQ,
-      content: 'Taniti\'s power outlets are 120 volts (the same as in the United States).',
-      image: ''
+      name: 'Titanic III',
+      about: 'Luxury travel on the high seas',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
     },
     {
-      title: 'Does the island have medical facilities?',
-      type: InfoType.FAQ,
-      content: 'There is one hospital and several clinics. The hospital has many multilingual employees.',
-      image: ''
-    },
-    {
-      title: 'How bad is the crime on Taniti?',
-      type: InfoType.FAQ,
-      content: 'Violent crime is very rare on Taniti, but as tourism increases, there are more ' +
-        'reports of pickpocketing and other petty crimes.',
-      image: ''
-    },
-    {
-      title: 'What holidays does Taniti observe?',
-      type: InfoType.FAQ,
-      content: 'Taniti enjoys a large number of national holidays, and many tourist attractions and ' +
-        'restaurants will be closed on holidays, so visitors should plan accordingly.',
-      image: ''
+      name: 'Coral Ferry',
+      about: 'The most scenic way to reach our shores',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
     }
   ]
+
+  lodgingData: VendorData[] = [
+    {
+      name: 'Etoile Residence',
+      about: 'Sleek, modern suites with a French flair',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
+    },
+    {
+      name: 'Sentinel Retreat',
+      about: 'Exclusive luxury right on the ocean',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
+    },
+    {
+      name: 'Anchor House',
+      about: 'Your cozy home away from home by the sea',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
+    }
+  ]
+
+  foodData: VendorData[] = [
+    {
+      name: 'Azure Plate',
+      about: 'Sophisticated coastal dining with a view',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
+    },
+    {
+      name: 'Shell Bistro',
+      about: 'Relaxed atmosphere with world-class flavor',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
+    },
+    {
+      name: 'Omakase Grill',
+      about: 'An intimate, chef-led culinary journey',
+      image: 'pageMedia/entertainment-snorkeling.jpeg'
+    }
+  ]
+
   protected readonly InfoType = InfoType;
 }

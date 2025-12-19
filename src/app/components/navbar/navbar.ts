@@ -103,6 +103,13 @@ export class Navbar {
     displayMode: 'icon-only'
   }
 
+  faq: NavLinkData = {
+    text: 'FAQ',
+    route: '/faq',
+    icon: '',
+    displayMode: 'responsive-hide'
+  }
+
   // Mobile Explore Tab Links
 
   explore: NavLinkData = {
@@ -136,6 +143,11 @@ export class Navbar {
     {
       text: 'Sightseeing',
       route: '/sightseeing',
+      displayMode: 'text-only'
+    },
+    {
+      text: 'FAQ',
+      route: '/faq',
       displayMode: 'text-only'
     }
   ]

@@ -6,3 +6,40 @@
   background-color: var(--highlight);
   margin: 0.5rem 0;
 }*/
+
+.home-shell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+app-banner {
+  width: 100%;
+}
+
+.info-banner h1 {
+  margin: 0 1rem;
+  padding: 0;
+
+  width: calc(100% - 2rem);
+
+  background-color: floralwhite;
+  color: var(--primary);
+
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 4vw, 4rem);
+  text-align: center;
+}
+
+.home-content {
+  margin: 0;
+  padding: 0 1rem;
+
+  width: 100%;
+  max-width: var(--maxWidth);
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}

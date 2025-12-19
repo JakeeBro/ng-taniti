@@ -1,0 +1,120 @@
+/* Wrapper to add spacing between the listings */
+.vendor-shell {
+  margin: 0 1rem 1rem 1rem;
+
+  width: calc(100% - 2rem);
+}
+
+/* The Horizontal Container */
+.vendor-container {
+  display: grid;
+  /* Column 1: Image (250px) | Column 2: Text (Flexible) | Column 3: Button (Fixed) */
+  grid-template-columns: 200px 1.25fr 200px;
+  grid-template-areas:
+    "image title button"
+    "image about button";
+  align-items: center; /* Vertically centers the button and text */
+  gap: 0;
+
+  background: var(--vendor-background);
+
+  overflow: hidden;
+}
+
+/* 1. Image on the Left */
+img {
+  width: 100%;
+  height: 100%;
+  max-height: 100px; /* Adjust height to your liking */
+
+  grid-area: image;
+
+  object-fit: cover;
+
+  @media (max-width: 850px) {
+    max-height: 125px;
+  }
+}
+
+/* 2. Title and Text Stacked in the Middle */
+.name {
+  margin: 0;
+  padding: 0 0 0 1rem;
+
+  grid-area: title;
+  align-self: end; /* Pulls title toward the bottom of its area */
+
+  color: var(--vendor-text);
+
+  font-family: Malvie, sans-serif;
+  font-size: 1.5rem;
+
+  @media (max-width: 850px) {
+    margin: 1rem 0 0.25rem 0;
+  }
+}
+
+.about {
+  margin: 0;
+  padding: 0 1rem;
+
+  grid-area: about;
+  align-self: start; /* Pulls description toward the top of its area */
+
+  color: var(--vendor-text);
+
+  font-size: 1.1rem;
+
+  @media (max-width: 850px) {
+    margin: 0 0 1rem 0;
+  }
+}
+
+/* 3. Button on the Right */
+button {
+  margin: 0 1rem 0 0;
+  padding: 0.4rem 1rem 0.25rem 1rem;
+
+  width: fit-content;
+
+  grid-area: button;
+  justify-self: right;
+
+  background-color: floralwhite;
+  color: var(--primary);
+
+  border: none;
+
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: transform 0.1s ease-in-out;
+
+  @media (max-width: 850px) {
+    justify-self: center;
+  }
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive: Stack them on mobile devices */
+@media (max-width: 850px) {
+  .vendor-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "title"
+      "about"
+      "button";
+  }
+
+  button {
+    margin-bottom: 1.5rem;
+  }
+}

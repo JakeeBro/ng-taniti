@@ -44,6 +44,8 @@ p {
   --setting-text: floralwhite;
   --toast-background: floralwhite;
   --toast-text: var(--primary);
+  --vendor-background: var(--primary);
+  --vendor-text: floralwhite;
 }
 
 /* THEMES */
@@ -62,6 +64,8 @@ p {
   --setting-text: floralwhite;
   --toast-background: var(--primary);
   --toast-text: floralwhite;
+  --vendor-background: var(--primary);
+  --vendor-text: floralwhite;
 }
 
 .theme-dark {
@@ -79,4 +83,6 @@ p {
   --setting-text: floralwhite;
   --toast-background: floralwhite;
   --toast-text: var(--primary);
+  --vendor-background: var(--primary);
+  --vendor-text: floralwhite;
 }

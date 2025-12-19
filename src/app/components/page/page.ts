@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Banner, BannerData } from "../banner/banner";
 import { Info, InfoData } from "../info/info";
 import { Activity } from "../../models/activity";
-import {Product} from "../product/product";
+import { Product } from "../product/product";
 
 export interface PageData {
   bannerData: BannerData;

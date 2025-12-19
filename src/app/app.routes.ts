@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Home } from "./components/home/home";
 import { Page } from "./components/page/page";
-import { transportationData, lodgingData, foodData, entertainmentData, sightseeingData } from "./components/page/pageInfo";
+import { transportationData, lodgingData, foodData, entertainmentData, sightseeingData, faqData } from "./components/page/pageInfo";
 import { Cart } from "./components/cart/cart";
 import { Orders } from "./components/orders/orders";
 
@@ -15,4 +15,5 @@ export const routes: Routes = [
   { path: 'sightseeing', component: Page, data: { data: sightseeingData }},
   { path: 'cart', component: Cart },
   { path: 'profile', component: Orders },
+  { path: 'faq', component: Page, data: { data: faqData }}
 ];

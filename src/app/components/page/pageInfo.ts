@@ -1,12 +1,74 @@
-import { PageData } from "./page";
-import { BannerType } from "../banner/banner";
-import { InfoType } from "../info/info";
+import {PageData} from "./page";
+import {BannerType} from "../banner/banner";
+import {InfoData, InfoType} from "../info/info";
 import {
-  transportationActivities,
-  lodgingActivities,
-  foodActivities,
   entertainmentActivities,
-  sightseeingActivities } from "../../models/activity";
+  foodActivities,
+  lodgingActivities,
+  sightseeingActivities,
+  transportationActivities
+} from "../../models/activity";
+
+const questionsData: InfoData[] = [
+  {
+    title: 'What language is spoken on Taniti?',
+    type: InfoType.FAQ,
+    content: 'Many younger Tanitians speak fluent English. Very little English is spoken in rural ' +
+      'areas, especially by the older residents.',
+    image: ''
+  },
+  {
+    title: 'What currency is accepted on Taniti?',
+    type: InfoType.FAQ,
+    content: 'Taniti uses the U.S. dollar as its currency, but many businesses will also accept ' +
+      'euros and yen. Several banks facilitate currency exchange, and many businesses accept major credit cards.',
+    image: ''
+  },
+  {
+    title: 'What power outlets are on the Island?',
+    type: InfoType.FAQ,
+    content: 'Taniti\'s power outlets are 120 volts (the same as in the United States).',
+    image: ''
+  },
+  {
+    title: 'Does the island have medical facilities?',
+    type: InfoType.FAQ,
+    content: 'There is one hospital and several clinics. The hospital has many multilingual employees.',
+    image: ''
+  },
+  {
+    title: 'How bad is the crime on Taniti?',
+    type: InfoType.FAQ,
+    content: 'Violent crime is very rare on Taniti, but as tourism increases, there are more ' +
+      'reports of pickpocketing and other petty crimes.',
+    image: ''
+  },
+  {
+    title: 'What holidays does Taniti observe?',
+    type: InfoType.FAQ,
+    content: 'Taniti enjoys a large number of national holidays, and many tourist attractions and ' +
+      'restaurants will be closed on holidays, so visitors should plan accordingly.',
+    image: ''
+  }
+]
+
+export const faqData: PageData = {
+  bannerData: {
+    bannerType: BannerType.Subpage,
+    title: '',
+    image: 'banners/taniti.jpeg',
+    button: 'FAQ',
+    interactive: false
+  },
+  desc: {
+    title: '',
+    type: InfoType.Secondary,
+    content: '',
+    image: ''
+  },
+  activityData: [],
+  infoData: questionsData
+}
 
 export const transportationData: PageData = {
   bannerData: {
@@ -86,12 +148,11 @@ export const entertainmentData: PageData = {
   desc: {
     title: '',
     type: InfoType.Secondary,
-    content: 'Most people visit Taniti to enjoy the beaches, explore the rainforest, and to visit the volcano. However, ' +
-      'there are other things to do, including visiting a local history museum, going on chartered fishing tours, ' +
-      'snorkeling, zip-lining in the rainforest, visiting several pubs, including a microbrewery, dancing at a new ' +
-      'dance club, seeing a movie, taking helicopter rides, playing at an arcade, visiting art galleries, and ' +
-      'bowling. Also, a nine-hole golf course should be operational by next year. Many of these activities are ' +
-      'located in Merriton Landing, which is a rapidly developing area on the north side of Yellow Leaf Bay.',
+    content: 'From the adrenaline-pumping rush of ziplining through the canopy to the sophisticated quiet of our ' +
+      'local art galleries, Taniti offers a diverse playground for every type of traveler. Whether you want to spend ' +
+      'your morning snorkeling in crystal-clear reefs, your afternoon at the museum, or your evening hitting the ' +
+      'strikes at the bowling alley and dancing at the nightclub, our entertainment options ensure your island days ' +
+      'are as vibrant as our sunsets.',
     image: ''
   },
   activityData: entertainmentActivities,
@@ -109,9 +170,11 @@ export const sightseeingData: PageData = {
   desc: {
     title: '',
     type: InfoType.Secondary,
-    content: 'Most tourists spend most of their time in Taniti City, which boasts native architecture and ' +
-      'nearby white, sandy beaches that encircle Yellow Leaf Bay. Other popular activities include boat or bus ' +
-      'tours of the island, hikes in the rainforest, or visits to Taniti’s active volcano.',
+    content: 'Discover the raw, natural majesty of Taniti from every possible vantage point. Whether you’re soaring ' +
+      'above our active volcanic peak in a helicopter, navigating secret coastal coves by boat, or trekking through ' +
+      'the emerald heart of our ancient rainforests, our sightseeing tours reveal the soul of the island. From ' +
+      'leisurely bike rides through local villages to guided bus tours of our most iconic landmarks, there is a ' +
+      'new wonder waiting around every corner.',
     image: ''
   },
   activityData: sightseeingActivities,

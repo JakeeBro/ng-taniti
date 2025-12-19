@@ -1,0 +1,12 @@
+<div class="vendor-shell">
+  <div class="vendor-container">
+
+    @if (vendorData.image != '') {
+      <img [src]="vendorData.image" [alt]="'Image of ${vendorData.name}'">
+    }
+
+    <h3 class="name">{{ vendorData.name }}</h3>
+    <p class="about" [innerHTML]="vendorData.about"></p>
+    <button>Visit Partner Site</button>
+  </div>
+</div>
