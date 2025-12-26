@@ -8,9 +8,9 @@ import { Orders } from "./components/orders/orders";
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: Home },
-  { path: 'transportation', component: Page, data: { data: transportationData }},
-  { path: 'lodging', component: Page, data: { data: lodgingData }},
-  { path: 'food', component: Page, data: { data: foodData }},
+  // { path: 'transportation', component: Page, data: { data: transportationData }},
+  // { path: 'lodging', component: Page, data: { data: lodgingData }},
+  // { path: 'food', component: Page, data: { data: foodData }},
   { path: 'entertainment', component: Page, data: { data: entertainmentData }},
   { path: 'sightseeing', component: Page, data: { data: sightseeingData }},
   { path: 'cart', component: Cart },

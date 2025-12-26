@@ -14,13 +14,15 @@ h1 {
 }
 
 .pageInfo-container {
+  /*background-color: blue;*/
+
   width: 100%;
   max-width: var(--maxWidth);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   gap: 3rem;
 }
 

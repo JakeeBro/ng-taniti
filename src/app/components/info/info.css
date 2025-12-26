@@ -1,6 +1,9 @@
 .info-shell {
   /*background-color: red;*/
 
+  width: 100%;
+  max-width: calc(var(--maxWidth) - 2rem);
+
   display: flex;
   justify-content: center;
 }
@@ -10,9 +13,6 @@
 
   margin: 0 1rem;
   padding: 0 0 1.25rem 0;
-
-  width: 100%;
-  max-width: calc(var(--maxWidth) - 2rem);
 
   display: flex;
   flex-direction: column;
@@ -72,9 +72,19 @@ img {
 }
 
 @media (max-width: 850px) {
+  .info-shell {
+    /*justify-content: right;*/
+
+    width: 100%;
+  }
+
+  .info-container {
+    /*background-color: red;*/
+  }
+
   .info-container.primary p {
     /*padding: 0 1rem;*/
-    text-align: left;
+    /*text-align: left;*/
   }
 
   info-container.secondary p {
@@ -87,7 +97,7 @@ img {
 
   .faq {
     flex-direction: column;
-    align-items: center;
+    /*align-items: center;*/
   }
 
   .faq p.title {
@@ -99,7 +109,7 @@ img {
 
   .faq p {
     width: 100%;
-    /*max-width: calc(100% - 2rem);*/
+    max-width: calc(100% - 2rem);
 
     text-align: left;
   }

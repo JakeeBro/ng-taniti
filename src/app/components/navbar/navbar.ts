@@ -120,21 +120,21 @@ export class Navbar {
   }
 
   exploreLinks: NavLinkData[] = [
-    {
-      text: 'Transportation',
-      route: '/transportation',
-      displayMode: 'text-only'
-    },
-    {
-      text: 'Lodging',
-      route: '/lodging',
-      displayMode: 'text-only'
-    },
-    {
-      text: 'Food',
-      route: '/food',
-      displayMode: 'text-only'
-    },
+    // {
+    //   text: 'Transportation',
+    //   route: '/transportation',
+    //   displayMode: 'text-only'
+    // },
+    // {
+    //   text: 'Lodging',
+    //   route: '/lodging',
+    //   displayMode: 'text-only'
+    // },
+    // {
+    //   text: 'Food',
+    //   route: '/food',
+    //   displayMode: 'text-only'
+    // },
     {
       text: 'Entertainment',
       route: '/entertainment',

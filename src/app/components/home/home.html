@@ -2,66 +2,48 @@
 
   <app-banner [data]="bannerData"></app-banner>
 
-  <div class="home-content">
+  <div class="info-banner">
+    <h1>DISCOVER TANITI</h1>
+  </div>
 
-    <div class="info-banner">
-      <h1>DISCOVER TANITI</h1>
-    </div>
+  <div class="content-section">
 
     <app-info [data]="aboutData"></app-info>
-
-  </div>
-
-  <app-banner [data]="banner1"></app-banner>
-
-  <div class="home-content">
-
-  </div>
     <app-info [data]="aboutData2"></app-info>
     <app-info [data]="aboutData3"></app-info>
+    <app-info [data]="entertainmentData"></app-info>
+    <app-info [data]="sightseeingData"></app-info>
 
-    <div class="content-section">
+  </div>
 
-      <app-info [data]="entertainmentData"></app-info>
+  <div class="content-section">
 
+    <app-info [data]="{ title: 'Getting Here', type: InfoType.Primary, content: '' , image: ''}"></app-info>
 
-    </div>
+    @for (data of transportationData; track data.name) {
+      <app-vendor [vendorData]="data"></app-vendor>
+    }
 
-    <div class="content-section">
+  </div>
 
-      <app-info [data]="sightseeingData"></app-info>
+  <div class="content-section">
 
+    <app-info [data]="{ title: 'Where to Stay', type: InfoType.Primary, content: '' , image: ''}"></app-info>
 
-    </div>
+    @for (data of lodgingData; track data.name) {
+      <app-vendor [vendorData]="data"></app-vendor>
+    }
 
-    <div class="content-section">
+  </div>
 
-      <app-info [data]="{ title: 'Getting Here', type: InfoType.Primary, content: '' , image: ''}"></app-info>
+  <div class="content-section">
 
-      @for (data of transportationData; track data.name) {
-        <app-vendor [vendorData]="data"></app-vendor>
-      }
+    <app-info [data]="{ title: 'What to Eat', type: InfoType.Primary, content: '' , image: ''}"></app-info>
 
-    </div>
+    @for (data of foodData; track data.name) {
+      <app-vendor [vendorData]="data"></app-vendor>
+    }
 
-    <div class="content-section">
-
-      <app-info [data]="{ title: 'Where to Stay', type: InfoType.Primary, content: '' , image: ''}"></app-info>
-
-      @for (data of lodgingData; track data.name) {
-        <app-vendor [vendorData]="data"></app-vendor>
-      }
-
-    </div>
-
-    <div class="content-section">
-
-      <app-info [data]="{ title: 'What to Eat', type: InfoType.Primary, content: '' , image: ''}"></app-info>
-
-      @for (data of foodData; track data.name) {
-        <app-vendor [vendorData]="data"></app-vendor>
-      }
-
-    </div>
+  </div>
 
 </div>
