@@ -19,12 +19,16 @@ export class App {
   footerData: FooterData = {
     lines: [
       {
-        text: 'Photos licensed from Adobe Stock',
-        link: 'fake link'
-      },
-      {
         text: 'Made with Angular 21',
         link: ''
+      },
+      {
+        text: 'Photos licensed from Adobe Stock',
+        link: 'https://stock.adobe.com/'
+      },
+      {
+        text: 'Icons by Google',
+        link: 'https://fonts.google.com/icons'
       },
       {
         text: 'Jake Poshepny, 2025',

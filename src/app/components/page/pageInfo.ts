@@ -56,7 +56,7 @@ export const faqData: PageData = {
   bannerData: {
     bannerType: BannerType.Subpage,
     title: '',
-    image: 'banners/taniti.jpeg',
+    image: 'banners/taniti.webp',
     button: 'FAQ',
     interactive: false
   },
@@ -74,7 +74,7 @@ export const transportationData: PageData = {
   bannerData: {
     bannerType: BannerType.Subpage,
     title: '',
-    image: 'banners/transportation.jpeg',
+    image: 'banners/transportation.webp',
     button: 'Transportation',
     interactive: false
   },
@@ -101,7 +101,7 @@ export const lodgingData: PageData = {
   bannerData: {
     bannerType: BannerType.Subpage,
     title: '',
-    image: 'banners/lodging.jpeg',
+    image: 'banners/lodging.webp',
     button: 'Lodging',
     interactive: false
   },
@@ -120,7 +120,7 @@ export const foodData: PageData = {
   bannerData: {
     bannerType: BannerType.Subpage,
     title: '',
-    image: 'banners/food.jpeg',
+    image: 'banners/food.webp',
     button: 'Food',
     interactive: false
   },
@@ -141,7 +141,7 @@ export const entertainmentData: PageData = {
   bannerData: {
     bannerType: BannerType.Subpage,
     title: '',
-    image: 'banners/entertainment.jpeg',
+    image: 'banners/entertainment.webp',
     button: 'Entertainment',
     interactive: false
   },
@@ -163,7 +163,7 @@ export const sightseeingData: PageData = {
   bannerData: {
     bannerType: BannerType.Subpage,
     title: '',
-    image: 'banners/sightseeing.jpeg',
+    image: 'banners/sightseeing.webp',
     button: 'Sightseeing',
     interactive: false
   },

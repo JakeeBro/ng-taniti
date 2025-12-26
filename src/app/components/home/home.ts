@@ -18,7 +18,7 @@ export class Home {
   bannerData: BannerData = {
     bannerType: BannerType.Primary,
     title: 'Taniti',
-    image: 'banners/taniti.jpeg',
+    image: 'banners/taniti.webp',
     button: '',
     interactive: false,
   }
@@ -26,7 +26,7 @@ export class Home {
   banner1: BannerData = {
     bannerType: BannerType.Subpage,
     title: '',
-    image: 'banners/taniti.jpeg',
+    image: 'banners/taniti.webp',
     button: '',
     interactive: false,
   }
@@ -81,22 +81,22 @@ export class Home {
     {
       name: 'Taniti Air',
       about: 'The island\'s premier international carrier',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     },
     {
       name: 'Tropic Travel',
       about: 'Island hopping made easy and affordable',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     },
     {
       name: 'Titanic III',
       about: 'Luxury travel on the high seas',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     },
     {
       name: 'Coral Ferry',
       about: 'The most scenic way to reach our shores',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     }
   ]
 
@@ -104,17 +104,17 @@ export class Home {
     {
       name: 'Etoile Residence',
       about: 'Sleek, modern suites with a French flair',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     },
     {
       name: 'Sentinel Retreat',
       about: 'Exclusive luxury right on the ocean',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     },
     {
       name: 'Anchor House',
       about: 'Your cozy home away from home by the sea',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     }
   ]
 
@@ -122,17 +122,17 @@ export class Home {
     {
       name: 'Azure Plate',
       about: 'Sophisticated coastal dining with a view',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     },
     {
       name: 'Shell Bistro',
       about: 'Relaxed atmosphere with world-class flavor',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     },
     {
       name: 'Omakase Grill',
       about: 'An intimate, chef-led culinary journey',
-      image: 'pageMedia/entertainment-snorkeling.jpeg'
+      image: 'pageMedia/entertainment-snorkeling.webp'
     }
   ]
 

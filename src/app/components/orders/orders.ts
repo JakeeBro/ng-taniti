@@ -27,7 +27,7 @@ export class Orders implements OnInit {
   bannerData: BannerData = {
     bannerType: BannerType.Subpage,
     title: '',
-    image: 'banners/taniti.jpeg',
+    image: 'banners/taniti.webp',
     button: 'PROFILE',
     interactive: false,
   }

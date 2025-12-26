@@ -18,7 +18,7 @@ export class Cart {
   bannerData: BannerData = {
     bannerType: BannerType.Subpage,
     title: '',
-    image: 'banners/taniti.jpeg',
+    image: 'banners/taniti.webp',
     button: 'Cart',
     interactive: false,
   }
